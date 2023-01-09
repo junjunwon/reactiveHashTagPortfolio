@@ -20,7 +20,11 @@ export const store = new Vuex.Store({
         },
         contentDetails: {
             'startup/xpoiled_detail.png' : {
-                content : 'content details startup/xpoiled_detail.png', 
+                content : 'Packaging Design', 
+            },
+            'startup/xpoiled.png' : {
+                content : 'Word Mark Logo',
+                link : 'http://www.xpoiled.com'
             },
             '2022voty-vertical-main-cover.mp4' : {
                 content : 'content is 2022voty-vertical-main-cover.mp4'
@@ -54,6 +58,9 @@ export const store = new Vuex.Store({
             },
             'cosmetic/lock_main.png' : {
                 content : 'cosmetic/lock_main.png'
+            },
+            'cosmetic/cosmetic_detail.png' : {
+                content : 'cosmetic/cosmetic_detail.png'
             }
         }
     },

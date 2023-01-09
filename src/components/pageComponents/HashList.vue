@@ -19,22 +19,26 @@
                     <div class="hashButtons">
                         <button :style="{'background-color': activeButton === 'branding' ? 'white' : '#000000', 'color': activeButton === 'branding' ? 'black':'white'}" 
                         class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
-                        <button :style="{'background-color': activeButton === 'digitalContent' ? 'white' : '#000000', 'color': activeButton === 'digitalContent' ? 'black':'white'}" 
-                        class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
                         <button :style="{'background-color': activeButton === 'packaging' ? 'white' : '#000000', 'color': activeButton === 'packaging' ? 'black':'white'}" 
                         class="button" name = "packaging" @click="setHashTag($event.currentTarget.name)">#Packaging</button>
+                        <button :style="{'background-color': activeButton === 'digitalContent' ? 'white' : '#000000', 'color': activeButton === 'digitalContent' ? 'black':'white'}" 
+                        class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
                     </div>
                     <div class="hashButtons">
-                        <button :style="{'background-color': activeButton === 'illustration' ? 'white' : '#000000', 'color': activeButton === 'illustration' ? 'black':'white'}" 
-                        class="button" name = "illustration" @click="setHashTag($event.currentTarget.name)">#Illustration</button>
-                        <button :style="{'background-color': activeButton === 'artDirection' ? 'white' : '#000000', 'color': activeButton === 'artDirection' ? 'black':'white'}" 
-                        class="button" name = "artDirection" @click="setHashTag($event.currentTarget.name)">#Art Direction</button>
                         <button :style="{'background-color': activeButton === 'brandStrategy' ? 'white' : '#000000', 'color': activeButton === 'brandStrategy' ? 'black':'white'}" 
                         class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
-                    </div>
-                    <div class="hashButtons">
                         <button :style="{'background-color': activeButton === 'photography' ? 'white' : '#000000', 'color': activeButton === 'photography' ? 'black':'white'}" 
                         class="button" name = "photography" @click="setHashTag($event.currentTarget.name)">#Photography</button>
+                        <button :style="{'background-color': activeButton === 'illustration' ? 'white' : '#000000', 'color': activeButton === 'illustration' ? 'black':'white'}" 
+                        class="button" name = "illustration" @click="setHashTag($event.currentTarget.name)">#Illustration</button>
+                    </div>
+                    <div class="hashButtons">
+                        <button :style="{'background-color': activeButton === 'webDesign' ? 'white' : '#000000', 'color': activeButton === 'webDesign' ? 'black':'white'}" 
+                        class="button" name = "webDesign" @click="setHashTag($event.currentTarget.name)">#Web Design</button>
+                        <button :style="{'background-color': activeButton === 'productDesign' ? 'white' : '#000000', 'color': activeButton === 'productDesign' ? 'black':'white'}" 
+                        class="button" name = "productDesign" @click="setHashTag($event.currentTarget.name)">#Product Design</button>
+                        <button :style="{'background-color': activeButton === 'editorialDesign' ? 'white' : '#000000', 'color': activeButton === 'editorialDesign' ? 'black':'white'}" 
+                        class="button" name = "editorialDesign" @click="setHashTag($event.currentTarget.name)">#Editorial Design</button>
                         <button :style="{'background-color': activeButton === 'startup' ? 'white' : '#000000', 'color': activeButton === 'startup' ? 'black':'white'}" 
                         class="button" name = "startup" @click="setHashTag($event.currentTarget.name)">#Startup</button>
                     </div>
@@ -51,6 +55,28 @@
                     </div>
                     <button :style="{'background-color': activeButton === 'branding' ? 'white' : '#000000', 'color': activeButton === 'branding' ? 'black':'white'}" 
                     class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
+                    <button :style="{'background-color': activeButton === 'packaging' ? 'white' : '#000000', 'color': activeButton === 'packaging' ? 'black':'white'}" 
+                    class="button" name = "packaging" @click="setHashTag($event.currentTarget.name)">#Packaging</button>
+                    <button :style="{'background-color': activeButton === 'digitalContent' ? 'white' : '#000000', 'color': activeButton === 'digitalContent' ? 'black':'white'}" 
+                    class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
+                    <button :style="{'background-color': activeButton === 'brandStrategy' ? 'white' : '#000000', 'color': activeButton === 'brandStrategy' ? 'black':'white'}" 
+                    class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
+                    <button :style="{'background-color': activeButton === 'photography' ? 'white' : '#000000', 'color': activeButton === 'photography' ? 'black':'white'}" 
+                    class="button" name = "photography" @click="setHashTag($event.currentTarget.name)">#Photography</button>
+                    <button :style="{'background-color': activeButton === 'illustration' ? 'white' : '#000000', 'color': activeButton === 'illustration' ? 'black':'white'}" 
+                    class="button" name = "illustration" @click="setHashTag($event.currentTarget.name)">#Illustration</button>
+                    <button :style="{'background-color': activeButton === 'webDesign' ? 'white' : '#000000', 'color': activeButton === 'webDesign' ? 'black':'white'}" 
+                    class="button" name = "webDesign" @click="setHashTag($event.currentTarget.name)">#Web Design</button>
+                    <button :style="{'background-color': activeButton === 'productDesign' ? 'white' : '#000000', 'color': activeButton === 'productDesign' ? 'black':'white'}" 
+                    class="button" name = "productDesign" @click="setHashTag($event.currentTarget.name)">#Product Design</button>
+                    <button :style="{'background-color': activeButton === 'editorialDesign' ? 'white' : '#000000', 'color': activeButton === 'editorialDesign' ? 'black':'white'}" 
+                    class="button" name = "editorialDesign" @click="setHashTag($event.currentTarget.name)">#Editorial Design</button>
+                    <button :style="{'background-color': activeButton === 'startup' ? 'white' : '#000000', 'color': activeButton === 'startup' ? 'black':'white'}" 
+                    class="button" name = "startup" @click="setHashTag($event.currentTarget.name)">#Startup</button>
+
+
+                    <!-- <button :style="{'background-color': activeButton === 'branding' ? 'white' : '#000000', 'color': activeButton === 'branding' ? 'black':'white'}" 
+                    class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                     <button :style="{'background-color': activeButton === 'digitalContent' ? 'white' : '#000000', 'color': activeButton === 'digitalContent' ? 'black':'white'}" 
                     class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
                     <button :style="{'background-color': activeButton === 'packaging' ? 'white' : '#000000', 'color': activeButton === 'packaging' ? 'black':'white'}" 
@@ -64,7 +90,7 @@
                     <button :style="{'background-color': activeButton === 'photography' ? 'white' : '#000000', 'color': activeButton === 'photography' ? 'black':'white'}" 
                     class="button" name = "photography" @click="setHashTag($event.currentTarget.name)">#Photography</button>
                     <button :style="{'background-color': activeButton === 'startup' ? 'white' : '#000000', 'color': activeButton === 'startup' ? 'black':'white'}" 
-                    class="button" name = "startup" @click="setHashTag($event.currentTarget.name)">#Startup</button>
+                    class="button" name = "startup" @click="setHashTag($event.currentTarget.name)">#Startup</button> -->
                 </b-col>
             </b-row>
         </b-container>

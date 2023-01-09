@@ -21,13 +21,15 @@
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
                     <!-- <VLazyImage src="../assets/img/startup/xpoiled_detail.png" /> -->
                     <img src="../assets/img/startup/xpoiled_detail.png" id="startup/xpoiled_detail.png" @click="clickImgtoModal($event)" />
-                    <!-- <img src="../assets/img/startup/xpoiled_detail.png" alt=""  @click="modalShow = !modalShow" /> -->
                     <div class="inlineHashTag">
                         <button class="button" name = "startup" @click="setHashTag($event.currentTarget.name)">#Startup</button>
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
-                        <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
+                        <button class="button" name = "packaging" @click="setHashTag($event.currentTarget.name)">#Packaging</button>
                         <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
-                        <div class="inlineLetter">Distributed in TARGET</div>
+                        <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
+                        <button class="button" name = "photography" @click="setHashTag($event.currentTarget.name)">#Photography</button>
+                        <button class="button" name = "webDesign" @click="setHashTag($event.currentTarget.name)">#Web Design</button>
+                        <!-- <div class="inlineLetter">Distributed in TARGET</div> -->
                     </div>
                 </b-col>
                 <b-col cols="6" align-self="end">
@@ -35,9 +37,8 @@
                         <source src="../assets/img/2022voty-vertical-main-cover.mp4" type="video/mp4" />
                     </video>
                     <div class="inlineHashTag">
-                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
-                        <div class="inlineLetter">Seventeen of Hearst</div>
+                        <!-- <div class="inlineLetter">Seventeen of Hearst</div> -->
                     </div>
                 </b-col>
             </b-row>
@@ -47,7 +48,8 @@
                     <div class="inlineHashTag">
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
-                        <div class="inlineLetter">Seventeen of Hearst</div>
+                        <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
+                        <!-- <div class="inlineLetter">Seventeen of Hearst</div> -->
                     </div>
                 </b-col>
             </b-row>
@@ -55,9 +57,8 @@
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
                     <img src="../assets/img/digitalContent/voy2021.png" alt="" id="digitalContent/voy2021.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
-                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
-                        <div class="inlineLetter">Seventeen of Hearst</div>
+                        <!-- <div class="inlineLetter">Seventeen of Hearst</div> -->
                     </div>
                 </b-col>
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
@@ -65,7 +66,8 @@
                     <div class="inlineHashTag">
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
-                        <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
+                        <button class="button" name = "package" @click="setHashTag($event.currentTarget.name)">#Package</button>
+                        <button class="button" name = "displayDesign" @click="setHashTag($event.currentTarget.name)">#Display Design</button>
                         <div class="inlineLetter">Distributed in TARGET</div>
                     </div>
                 </b-col>
@@ -76,7 +78,14 @@
                     <div class="inlineHashTag">
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "package" @click="setHashTag($event.currentTarget.name)">#Package</button>
-                        <div class="inlineLetter">Cosmetic Package</div>
+                        <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
+                        <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
+                        <button class="button" name = "photography" @click="setHashTag($event.currentTarget.name)">#Photography</button>
+                        <button class="button" name = "webDesign" @click="setHashTag($event.currentTarget.name)">#Web Design</button>
+                        <button class="button" name = "displayDesign" @click="setHashTag($event.currentTarget.name)">#Display Design</button>
+                        
+                        <button class="button" name = "package" @click="setHashTag($event.currentTarget.name)">#Package</button>
+                        <div class="inlineLetter">Distributed at WALMART, CVS</div>
                     </div>
                 </b-col>
                 <b-col cols="2" md="2">
@@ -88,9 +97,8 @@
                 <b-col cols="10" md="10" align-self="center">
                     <img src="../assets/img/cosmetic/tutti_main.png" alt="" id="digitalContent/tutti_main.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
-                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
-                        <button class="button" name = "package" @click="setHashTag($event.currentTarget.name)">#Package</button>
-                        <div class="inlineLetter">Cosmetic Package</div>
+                        <button class="button" name = "productDesign" @click="setHashTag($event.currentTarget.name)">#Product Design</button>
+                        <!-- <div class="inlineLetter">Cosmetic Package</div> -->
                     </div>
                 </b-col>
             </b-row>
@@ -98,19 +106,17 @@
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
                     <img src="../assets/img/others/book_detail2.png" id="others/book_detail2.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
-                        <button class="button" name = "startup" @click="setHashTag($event.currentTarget.name)">#Startup</button>
-                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
-                        <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
-                        <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
-                        <div class="inlineLetter">Distributed in TARGET</div>
+                        <button class="button" name = "illustration" @click="setHashTag($event.currentTarget.name)">#Illustration</button>
+                        <!-- <div class="inlineLetter">Distributed in TARGET</div> -->
                     </div>
                 </b-col>
                 <b-col cols="6" align-self="end">
                     <img src="../assets/img/others/book_detail.png" id="others/book_detail.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
+                        <button class="button" name = "editorialDesign" @click="setHashTag($event.currentTarget.name)">#Editorial Design</button>
+                        <button class="button" name = "illustration" @click="setHashTag($event.currentTarget.name)">#Illustration</button>
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
-                        <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
-                        <div class="inlineLetter">Seventeen of Hearst</div>
+                        <!-- <div class="inlineLetter">Seventeen of Hearst</div> -->
                     </div>
                 </b-col>
             </b-row>
@@ -118,9 +124,10 @@
                 <b-col cols="10" md="10" align-self="center">
                     <img src="../assets/img/others/book_main.png" id="others/book_main.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
+                        <button class="button" name = "editorialDesign" @click="setHashTag($event.currentTarget.name)">#Editorial Design</button>
+                        <button class="button" name = "illustration" @click="setHashTag($event.currentTarget.name)">#Illustration</button>
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
-                        <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
-                        <div class="inlineLetter">Seventeen of Hearst</div>
+                        <!-- <div class="inlineLetter">Seventeen of Hearst</div> -->
                     </div>
                 </b-col>
                 <b-col cols="2" md="2">
@@ -130,23 +137,25 @@
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
                     <img src="../assets/img/cosmetic/sooae_main.png" id="cosmetic/sooae_main.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
-                        <button class="button" name = "branding" @click="setHalkkkshTag($event.currentTarget.name)">#Branding</button>
-                        <button class="button" name = "package" @click="setHashTag($event.currentTarget.name)">#Package</button>
-                        <div class="inlineLetter">Cosmetic Package</div>
+                        <button class="button" name = "photography" @click="setHalkkkshTag($event.currentTarget.name)">#Photography</button>
+                        <button class="button" name = "displayDesign" @click="setHalkkkshTag($event.currentTarget.name)">#Display Design</button>
+                        <button class="button" name = "packageDesign" @click="setHashTag($event.currentTarget.name)">#Package Design</button>
+                        <div class="inlineLetter">Distributed at WALMART, CVS</div>
                     </div>
                 </b-col>
                 <b-col cols="6" align-self="end">
                     <img src="../assets/img/cosmetic/lock_main.png" id="cosmetic/lock_main.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
-                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
-                        <button class="button" name = "package" @click="setHashTag($event.currentTarget.name)">#Package</button>
-                        <div class="inlineLetter">Cosmetic Package</div>
+                        <button class="button" name = "photography" @click="setHalkkkshTag($event.currentTarget.name)">#Photography</button>
+                        <button class="button" name = "displayDesign" @click="setHalkkkshTag($event.currentTarget.name)">#Display Design</button>
+                        <button class="button" name = "packageDesign" @click="setHashTag($event.currentTarget.name)">#Package Design</button>
+                        <div class="inlineLetter">Distributed at WALMART, CVS</div>
                     </div>
                 </b-col>
             </b-row>
             <b-row id="row" align-v="stretch" v-show="getPackageHashTag === 'all'" >
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
-                    <img :src="getCosmeticImgSrc" @click="modalShow = !modalShow"/>
+                    <img :src="getCosmeticImgSrc" />
                     <div class="inlineHashTag">
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "package" @click="setHashTag($event.currentTarget.name)">#Package</button>
@@ -154,7 +163,7 @@
                     </div>
                 </b-col>
                 <b-col cols="6" align-self="end">
-                    <img src="../assets/img/cosmetic/cosmetic_detail.png" alt="" />
+                    <img src="../assets/img/cosmetic/cosmetic_detail.png" id="cosmetic/cosmetic_detail.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "package" @click="setHashTag($event.currentTarget.name)">#Package</button>
@@ -188,21 +197,23 @@
             <!-- ################################################# -->
             <b-row id="rowSquare" align-v="stretch" v-show="getPackageHashTag === 'branding'" >
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
-                    <img src="../assets/img/startup/xpoiled_detail.png" alt="" @click="modalShow = !modalShow" />
+                    <img src="../assets/img/startup/xpoiled_detail.png" id="startup/xpoiled_detail.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
                         <button class="button" name = "startup" @click="setHashTag($event.currentTarget.name)">#Startup</button>
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
-                        <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
+                        <button class="button" name = "packaging" @click="setHashTag($event.currentTarget.name)">#Packaging</button>
                         <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
-                        <div class="inlineLetter">Distributed in TARGET</div>
+                        <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
+                        <button class="button" name = "photography" @click="setHashTag($event.currentTarget.name)">#Photography</button>
+                        <button class="button" name = "webDesign" @click="setHashTag($event.currentTarget.name)">#Web Design</button>
+                        <!-- <div class="inlineLetter">Distributed in TARGET</div> -->
                     </div>
                 </b-col>
                 <b-col cols="6" align-self="end">
                     <video webkit-playsinline playsinline loop autoplay muted preload="auto">
-                        <source src="../assets/img/2022voty-vertical-main-cover.mp4" type="video/mp4" />
+                        <source src="../assets/img/2022voty-vertical-main-cover.mp4" type="video/mp4" id="2022voty-vertical-main-cover.mp4" @click="clickImgtoModal($event)" />
                     </video>
                     <div class="inlineHashTag">
-                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
                         <div class="inlineLetter">Seventeen of Hearst</div>
                     </div>
@@ -210,25 +221,25 @@
             </b-row>
             <b-row id="row" align-h="around" v-show="getPackageHashTag === 'branding'">
                 <b-col cols="12" md="12" align-self="center">
-                    <img src="../assets/img/digitalContent/seventeenReadImage.png" alt="" />
+                    <img src="../assets/img/digitalContent/seventeenReadImage.png" id="digitalContent/seventeenReadImage.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
+                        <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
                         <div class="inlineLetter">Seventeen of Hearst</div>
                     </div>
                 </b-col>
             </b-row>
             <b-row id="rowSquare" align-v="stretch" v-show="getPackageHashTag === 'branding'" >
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
-                    <img src="../assets/img/digitalContent/voy2021.png" alt="" @click="modalShow = !modalShow" />
+                    <img src="../assets/img/digitalContent/voy2021.png" id="digitalContent/voy2021.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
-                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
                         <div class="inlineLetter">Seventeen of Hearst</div>
                     </div>
                 </b-col>
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
-                    <img src="../assets/img/digitalContent/pinkLipps.png" alt="" @click="modalShow = !modalShow" />
+                    <img src="../assets/img/digitalContent/pinkLipps.png" id="digitalContent/pinkLipps.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
@@ -242,63 +253,64 @@
             <!-- ################################################# -->
             <b-row id="row" align-v="stretch" v-show="getPackageHashTag === 'digitalContent'" >
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
-                    <img src="../assets/img/startup/xpoiled_detail.png" alt=""  @click="modalShow = !modalShow" />
+                    <img src="../assets/img/startup/xpoiled_detail.png" id="startup/xpoiled_detail.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
                         <button class="button" name = "startup" @click="setHashTag($event.currentTarget.name)">#Startup</button>
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
-                        <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
+                        <button class="button" name = "packaging" @click="setHashTag($event.currentTarget.name)">#Packaging</button>
                         <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
-                        <div class="inlineLetter">Distributed in TARGET</div>
+                        <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
+                        <button class="button" name = "photography" @click="setHashTag($event.currentTarget.name)">#Photography</button>
+                        <button class="button" name = "webDesign" @click="setHashTag($event.currentTarget.name)">#Web Design</button>
+                        <!-- <div class="inlineLetter">Distributed in TARGET</div> -->
                     </div>
                 </b-col>
                 <b-col cols="6" align-self="center">
                     <video webkit-playsinline playsinline loop autoplay muted preload="auto">
-                        <source src="../assets/img/2022voty-vertical-main-cover.mp4" type="video/mp4" />
+                        <source src="../assets/img/2022voty-vertical-main-cover.mp4" type="video/mp4" id="2022voty-vertical-main-cover.mp4" @click="clickImgtoModal($event)" />
                     </video>
                     <div class="inlineHashTag">
-                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
-                        <div class="inlineLetter">Seventeen of Hearst</div>
+                        <!-- <div class="inlineLetter">Seventeen of Hearst</div> -->
                     </div>
                 </b-col>
             </b-row>
             <b-row id="rowSquare" align-h="around" v-show="getPackageHashTag === 'digitalContent'">
                 <b-col cols="12" md="12" align-self="center">
-                    <img src="../assets/img/digitalContent/seventeenReadImage.png" alt="" />
+                    <img src="../assets/img/digitalContent/seventeenReadImage.png" id="digitalContent/seventeenReadImage.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
-                        <div class="inlineLetter">Seventeen of Hearst</div>
+                        <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
+                        <!-- <div class="inlineLetter">Seventeen of Hearst</div> -->
                     </div>
                 </b-col>
             </b-row>
-            <b-row id="row" align-v="stretch" v-show="getPackageHashTag === 'digitalContent'" >
+            <b-row id="rowSquare" align-v="stretch" v-show="getPackageHashTag === 'digitalContent'" >
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
-                    <img src="../assets/img/digitalContent/voy2021.png" alt=""  @click="modalShow = !modalShow" />
+                    <img src="../assets/img/digitalContent/voy2021.png" id="digitalContent/voy2021.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
-                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
-                        <div class="inlineLetter">Seventeen of Hearst</div>
+                        <!-- <div class="inlineLetter">Seventeen of Hearst</div> -->
                     </div>
                 </b-col>
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
-                    <img src="../assets/img/digitalContent/pinkLipps.png" alt=""  @click="modalShow = !modalShow" />
+                    <img src="../assets/img/digitalContent/pinkLipps.png" id="digitalContent/pinkLipps.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
                         <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
                         <div class="inlineLetter">Distributed in TARGET</div>
                     </div>
-                </b-col>
-                
+                </b-col>     
             </b-row>
-            <b-row id="row" align-h="around" v-show="getPackageHashTag === 'digitalContent'">
+            <b-row id="row" align-v="stretch" align-h="around" v-show="getPackageHashTag === 'digitalContent'">
                 
-                <b-col cols="4" align-self="start" v-b-modal="'my-modal'">
-                    <img src="../assets/img/startup/xpoiled.png" alt=""  @click="modalShow = !modalShow" />
+                <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
+                    <img src="../assets/img/startup/xpoiled.png" alt="" id="startup/xpoiled.png" @click="clickImgtoModal($event)" />
                     <div style="text-align:start;">#best #123</div>
                 </b-col>
-                <b-col cols="5" align-self="center">
+                <b-col cols="6" align-self="center">
                     <img id="logo" :src="getXpoiledImgSrc" />
                 </b-col>
             </b-row>
@@ -307,7 +319,7 @@
             <!-- ################################################# -->
             <b-row id="row" align-h="around" v-show="getPackageHashTag === 'packaging'">
                 <b-col cols="10" md="10" align-self="center">
-                    <img src="../assets/img/cosmetic/unicornGlow_main.png" alt="" />
+                    <img src="../assets/img/cosmetic/unicornGlow_main.png" id="cosmetic/unicornGlow_main.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
@@ -321,7 +333,7 @@
                 <b-col cols="2" md="2">
                 </b-col>
                 <b-col cols="10" md="10" align-self="center">
-                    <img src="../assets/img/cosmetic/tutti_main.png" alt="" />
+                    <img src="../assets/img/cosmetic/tutti_main.png" id="cosmetic/tutti_main.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "package" @click="setHashTag($event.currentTarget.name)">#Package</button>
@@ -339,7 +351,7 @@
                     </div>
                 </b-col>
                 <b-col cols="6" align-self="end">
-                    <img src="../assets/img/cosmetic/cosmetic_detail.png" alt="" />
+                    <img src="../assets/img/cosmetic/cosmetic_detail.png" id="cosmetic/cosmetic_detail.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "package" @click="setHashTag($event.currentTarget.name)">#Package</button>
@@ -358,17 +370,20 @@
             <!-- ################################################# -->
             <b-row id="row" align-v="stretch" v-show="getPackageHashTag === 'brandStrategy'" >
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
-                    <img src="../assets/img/startup/xpoiled_detail.png" alt="" @click="modalShow = !modalShow" />
+                    <img src="../assets/img/startup/xpoiled_detail.png" id="startup/xpoiled_detail.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
                         <button class="button" name = "startup" @click="setHashTag($event.currentTarget.name)">#Startup</button>
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
-                        <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
+                        <button class="button" name = "packaging" @click="setHashTag($event.currentTarget.name)">#Packaging</button>
                         <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
-                        <div class="inlineLetter">Distributed in TARGET</div>
+                        <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
+                        <button class="button" name = "photography" @click="setHashTag($event.currentTarget.name)">#Photography</button>
+                        <button class="button" name = "webDesign" @click="setHashTag($event.currentTarget.name)">#Web Design</button>
+                        <!-- <div class="inlineLetter">Distributed in TARGET</div> -->
                     </div>
                 </b-col>
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
-                    <img src="../assets/img/digitalContent/pinkLipps.png" alt="" @click="modalShow = !modalShow" />
+                    <img src="../assets/img/digitalContent/pinkLipps.png" id="digitalContent/pinkLipps.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
@@ -385,7 +400,7 @@
             <!-- ################################################# -->
             <b-row id="row" align-h="around" v-show="getPackageHashTag === 'startup'">
                 <b-col cols="4" align-self="start" v-b-modal="'my-modal'">
-                    <img src="../assets/img/startup/xpoiled.png" alt="" @click="modalShow = !modalShow" />
+                    <img src="../assets/img/startup/xpoiled.png" id="startup/xpoiled.png" @click="clickImgtoModal($event)" />
                     <div style="text-align:start;">#best #123</div>
                 </b-col>
                 <b-col cols="5" align-self="center">
@@ -397,25 +412,25 @@
         <b-container class="" fluid="xl" v-if="false">
             <b-row id="row" align-h="center">
                 <b-col align-self="start">
-                    <img src="../assets/img/startup/xpoiled.png" alt="" />
+                    <img src="../assets/img/startup/xpoiled.png" id="startup/xpoiled.png" @click="clickImgtoModal($event)" />
                     <div style="text-align:start;">#best #123</div>
                 </b-col>
             </b-row>
             <b-row id="row" align-h="center">
                 <b-col align-self="center">
-                    <img src="../assets/img/startup/xpoiled.png" alt="" />
+                    <img src="../assets/img/startup/xpoiled.png" id="startup/xpoiled.png" @click="clickImgtoModal($event)" />
                     <div style="text-align:start;">#best #123</div>
                 </b-col>
             </b-row>
             <b-row id="row" align-h="center">
                 <b-col align-self="start">
-                    <img src="../assets/img/startup/xpoiled.png" alt="" />
+                    <img src="../assets/img/startup/xpoiled.png" id="startup/xpoiled.png" @click="clickImgtoModal($event)" />
                     <div style="text-align:start;">#best #123</div>
                 </b-col>
             </b-row>
             <b-row id="row" align-h="center">
                 <b-col align-self="center">
-                    <img src="../assets/img/startup/xpoiled.png" alt="" />
+                    <img src="../assets/img/startup/xpoiled.png" id="startup/xpoiled.png" @click="clickImgtoModal($event)" />
                     <div style="text-align:start;">#best #123</div>
                 </b-col>
             </b-row>
@@ -635,7 +650,7 @@ button {
 }
 @media (max-width: 1200px) {
     #row {
-        height: 550px;
+        height: 620px;
         padding-bottom: 2em;
         margin-bottom: 250px;
     }
@@ -646,7 +661,7 @@ button {
 }
 @media (max-width: 1100px) {
     #row {
-        height: 550px;
+        height: 620px;
         padding-bottom: 2em;
         margin-bottom: 250px;
     }
@@ -658,7 +673,7 @@ button {
 
 @media (max-width: 1000px) {
     #row {
-        height: 430px;
+        height: 620px;
         padding-bottom: 2em;
         margin-bottom: 100px;
     }

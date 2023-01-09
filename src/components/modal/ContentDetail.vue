@@ -18,7 +18,11 @@
                 <b-col id="colModal" cols="6" align-self="start" 
                     style="display:flex; align-items:center; color:white;"
                 >
-                    {{this.$store.getters.getModalInfo.content}}
+                    <b-row>
+                        {{this.$store.getters.getModalInfo.content}}
+                        <a v-bind:href="getModalInfo.link">visit to xpoiled webSite</a>
+                    </b-row>
+                    
                 </b-col>
             </b-row>
         </b-modal>
