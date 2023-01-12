@@ -15,8 +15,61 @@
                 </b-col>
             </b-row> -->
             <!-- ################################################# -->
+            <!-- ################### FOR TEST ###################-->
+            <!-- ################################################# -->
+            <!-- <b-row id="row" align-v="center" v-show="getPackageHashTag === 'all'">
+                <div class="imageBackground"></div>
+            </b-row>
+            <b-row id="row" align-v="center" v-show="getPackageHashTag === 'all'">
+                <b-col cols="12" align-self="center">
+                    <infinite-slide-bar duration="80s" :barStyle="{ background: '#000000', padding: '5px 0', overflow: 'inherit', height: '900px'}">
+                    <infinite-slide-bar duration="140s" paused :barStyle="{ background: '#000000', height: setSliderHeight()}">
+                        <div class="items" @click="clickImgtoModal($event)">
+                            <b-col 
+                                class="f-left pd-t-8px mg-r-10px" 
+                                align-self="end"
+                                v-for="(slide, i) in slides" :key="i"
+                            >
+                                <div v-bind:style="{ backgroundImage: 'url(' + slide.image + ')' }"></div>
+                                <b-img thumbnail fluid :src="slide.image" alt="Image 1" style="background-size: cover;"></b-img>
+                            </b-col>
+                            <b-col class="f-left pd-t-8px mg-r-10px" cols="1" align-self="end">
+                                <img src="../assets/img/cosmetic/cosmetic_detail.png" alt="" />
+                            </b-col>
+                        </div>
+                    </infinite-slide-bar>
+                    <div class="inlineHashTag" style="text-align: center; padding-top: 3em;">
+                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
+                        <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
+                        <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
+                    </div>
+                </b-col>
+            </b-row> -->
+            <!-- ################################################# -->
             <!-- ################### ALL CATA ###################-->
             <!-- ################################################# -->
+            <b-row id="rowSquare" align-v="stretch" v-show="getPackageHashTag === 'all'" >
+                <b-col cols="12" align-self="center">
+                    <vueper-slides
+                    fade
+                    autoplay
+                    :visible-slides="5"
+                    slide-multiple
+                    :slide-ratio="1 / 4"
+                    :bullets="false"
+                    :arrows-outside="false">
+                        <vueper-slide 
+                            v-for="(slide, i) in slides" :key="i" :image="slide.image"
+                            :style="'background-color: ' + ['#ff5252', '#42b983'][i % 2]"
+                        />
+                    </vueper-slides>
+                    <div class="inlineHashTag" style="text-align: center; padding-top: 3em;">
+                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
+                        <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
+                        <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
+                    </div>
+                </b-col>
+            </b-row>
             <b-row id="rowSquare" align-v="stretch" v-show="getPackageHashTag === 'all'" >
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
                     <!-- <VLazyImage src="../assets/img/startup/xpoiled_detail.png" /> -->
@@ -170,31 +223,32 @@
                         <div class="inlineLetter">Cosmetic Package</div>
                     </div>
                 </b-col>
-            </b-row>
-            <!-- <b-row id="row" align-v="stretch" v-show="getPackageHashTag === 'all'">
-                <infinite-slide-bar duration="80s" :barStyle="{ background: '#000000', padding: '5px 0', overflow: 'inherit', height: '00px'}">
-                        <div class="items">
-                            <b-col class="f-left pd-t-8px mg-r-10px" cols="1" align-self="end">
-                                <img src="../assets/img/cosmetic/cosmetic_detail.png" alt="" />
-                            </b-col>
-                            <b-col class="f-left pd-t-8px mg-r-10px" cols="1" align-self="end">
-                                <img src="../assets/img/cosmetic/cosmetic_detail.png" alt="" />
-                            </b-col>
-                        </div>
-                    </infinite-slide-bar>
-                <b-col cols="12" align-self="end">
-                    
-                    <div class="inlineHashTag">
-                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
-                        <button class="button" name = "package" @click="setHashTag($event.currentTarget.name)">#Package</button>
-                        <div class="inlineLetter">Cosmetic Package</div>
-                    </div>
-                </b-col>
-            </b-row> -->
-              
+            </b-row>  
             <!-- ################################################# -->
             <!-- ################### Branding ###################-->
             <!-- ################################################# -->
+            <b-row id="rowSquare" align-v="stretch" v-show="getPackageHashTag === 'branding'" >
+                <b-col cols="12" align-self="center">
+                    <vueper-slides
+                    fade
+                    autoplay
+                    :visible-slides="6"
+                    slide-multiple
+                    :slide-ratio="1 / 4"
+                    :bullets="false"
+                    :arrows-outside="false">
+                        <vueper-slide 
+                            v-for="(slide, i) in slides" :key="i" :image="slide.image"
+                            :style="'background-color: ' + ['#ff5252', '#42b983'][i % 2]"
+                        />
+                    </vueper-slides>
+                    <div class="inlineHashTag" style="text-align: center; padding-top: 3em;">
+                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
+                        <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
+                        <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
+                    </div>
+                </b-col>
+            </b-row>
             <b-row id="rowSquare" align-v="stretch" v-show="getPackageHashTag === 'branding'" >
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
                     <img src="../assets/img/startup/xpoiled_detail.png" id="startup/xpoiled_detail.png" @click="clickImgtoModal($event)" />
@@ -231,13 +285,13 @@
                 </b-col>
             </b-row>
             <b-row id="rowSquare" align-v="stretch" v-show="getPackageHashTag === 'branding'" >
-                <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
+                <!-- <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
                     <img src="../assets/img/digitalContent/voy2021.png" id="digitalContent/voy2021.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
                         <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
                         <div class="inlineLetter">Seventeen of Hearst</div>
                     </div>
-                </b-col>
+                </b-col> -->
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
                     <img src="../assets/img/digitalContent/pinkLipps.png" id="digitalContent/pinkLipps.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
@@ -251,6 +305,28 @@
             <!-- ################################################# -->
             <!-- ################### digitalContent ################### -->
             <!-- ################################################# -->
+            <b-row id="rowSquare" align-v="stretch" v-show="getPackageHashTag === 'digitalContent'" >
+                <b-col cols="12" align-self="center">
+                    <vueper-slides
+                    fade
+                    autoplay
+                    :visible-slides="6"
+                    slide-multiple
+                    :slide-ratio="1 / 4"
+                    :bullets="false"
+                    :arrows-outside="false">
+                        <vueper-slide 
+                            v-for="(slide, i) in slides" :key="i" :image="slide.image"
+                            :style="'background-color: ' + ['#ff5252', '#42b983'][i % 2]"
+                        />
+                    </vueper-slides>
+                    <div class="inlineHashTag" style="text-align: center; padding-top: 3em;">
+                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
+                        <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
+                        <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
+                    </div>
+                </b-col>
+            </b-row>
             <b-row id="row" align-v="stretch" v-show="getPackageHashTag === 'digitalContent'" >
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
                     <img src="../assets/img/startup/xpoiled_detail.png" id="startup/xpoiled_detail.png" @click="clickImgtoModal($event)" />
@@ -307,7 +383,7 @@
             <b-row id="row" align-v="stretch" align-h="around" v-show="getPackageHashTag === 'digitalContent'">
                 
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
-                    <img src="../assets/img/startup/xpoiled.png" alt="" id="startup/xpoiled.png" @click="clickImgtoModal($event)" />
+                    <img src="../assets/img/startup/xpoiled_detail.png" alt="" id="startup/xpoiled.png" @click="clickImgtoModal($event)" />
                     <div style="text-align:start;">#best #123</div>
                 </b-col>
                 <b-col cols="6" align-self="center">
@@ -360,14 +436,43 @@
                 </b-col>
             </b-row>
             <!-- ################################################# -->
+            <!-- ################### photography ################### -->
+            <!-- ################################################# -->
+            <b-row id="row" align-h="around" v-show="getPackageHashTag === 'photography'">
+                <b-col cols="4" align-self="start" v-b-modal="'my-modal'">
+                    <img src="../assets/img/startup/xpoiled_detail.png" id="startup/xpoiled_detail.png" @click="clickImgtoModal($event)" />
+                    <div style="text-align:start;">#best #123</div>
+                </b-col>
+
+            </b-row>
+            <!-- ################################################# -->
             <!-- ################### illustration ################### -->
-            <!-- ################################################# -->
-            <!-- ################################################# -->
-            <!-- ################### Art Direction ################### -->
             <!-- ################################################# -->
             <!-- ################################################# -->
             <!-- ################### Brand Strategy ################### -->
             <!-- ################################################# -->
+            <b-row id="rowSquare" align-v="stretch" v-show="getPackageHashTag === 'brandStrategy'" >
+                <b-col cols="12" align-self="center">
+                    <vueper-slides
+                    fade
+                    autoplay
+                    :visible-slides="6"
+                    slide-multiple
+                    :slide-ratio="1 / 4"
+                    :bullets="false"
+                    :arrows-outside="false">
+                        <vueper-slide 
+                            v-for="(slide, i) in slides" :key="i" :image="slide.image"
+                            :style="'background-color: ' + ['#ff5252', '#42b983'][i % 2]"
+                        />
+                    </vueper-slides>
+                    <div class="inlineHashTag" style="text-align: center; padding-top: 3em;">
+                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
+                        <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
+                        <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
+                    </div>
+                </b-col>
+            </b-row>
             <b-row id="row" align-v="stretch" v-show="getPackageHashTag === 'brandStrategy'" >
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
                     <img src="../assets/img/startup/xpoiled_detail.png" id="startup/xpoiled_detail.png" @click="clickImgtoModal($event)" />
@@ -392,15 +497,39 @@
                     </div>
                 </b-col>
             </b-row>
+            <b-row id="rowSquare" align-h="around" v-show="getPackageHashTag === 'brandStrategy'">
+                <b-col cols="12" md="12" align-self="center">
+                    <img src="../assets/img/digitalContent/seventeenReadImage.png" id="digitalContent/seventeenReadImage.png" @click="clickImgtoModal($event)" />
+                    <div class="inlineHashTag">
+                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
+                        <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
+                        <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
+                        <!-- <div class="inlineLetter">Seventeen of Hearst</div> -->
+                    </div>
+                </b-col>
+            </b-row>
             <!-- ################################################# -->
-            <!-- ################### Photography ################### -->
+            <!-- ################### Web Design ################### -->
+            <!-- ################################################# -->
+            <b-row id="row" align-h="around" v-show="getPackageHashTag === 'webDesign'">
+                <b-col cols="4" align-self="start" v-b-modal="'my-modal'">
+                    <img src="../assets/img/startup/xpoiled_detail.png" id="startup/xpoiled_detail.png" @click="clickImgtoModal($event)" />
+                    <div style="text-align:start;">#best #123</div>
+                </b-col>
+
+            </b-row>
+            <!-- ################################################# -->
+            <!-- ################### Product Design ################### -->
+            <!-- ################################################# -->
+            <!-- ################################################# -->
+            <!-- ################### Editorial Design ################### -->
             <!-- ################################################# -->
             <!-- ################################################# -->
             <!-- ################### Startup ################### -->
             <!-- ################################################# -->
             <b-row id="row" align-h="around" v-show="getPackageHashTag === 'startup'">
                 <b-col cols="4" align-self="start" v-b-modal="'my-modal'">
-                    <img src="../assets/img/startup/xpoiled.png" id="startup/xpoiled.png" @click="clickImgtoModal($event)" />
+                    <img src="../assets/img/startup/xpoiled_detail.png" id="startup/xpoiled_detail.png" @click="clickImgtoModal($event)" />
                     <div style="text-align:start;">#best #123</div>
                 </b-col>
                 <b-col cols="5" align-self="center">
@@ -446,15 +575,83 @@
 <script>
 import ContentDetail from './modal/ContentDetail.vue'
 import VLazyImage from "v-lazy-image";
+import { VueperSlides, VueperSlide } from 'vueperslides'
+import 'vueperslides/dist/vueperslides.css'
 
 export default {
     name : 'dummy-vue',
     components : {
         ContentDetail,
-        VLazyImage
+        VLazyImage,
+        VueperSlides, VueperSlide 
     },
     data() {
         return {
+            // for test
+            slides: [
+                {
+                    title: 'Slide #1',
+                    content: 'Slide 1 content.',
+                    image : require('../assets/img/startup/xpoiled.png')
+                    // image : '../assets/img/startup/xpoiled.png'
+                },
+                {
+                    title: 'Slide #2',
+                    content: 'Slide 2 content.',
+                    image : require('../assets/img/startup/xpoiled_detail.png')
+                },
+                {
+                    title: 'Slide #2',
+                    content: 'Slide 2 content.',
+                    image : require('../assets/img/startup/xpoiled_letters.png')
+                },
+                {
+                    title: 'Slide #2',
+                    content: 'Slide 2 content.',
+                    image : require('../assets/img/startup/xpoiled_photo.png')
+                },
+                {
+                    title: 'Slide #2',
+                    content: 'Slide 2 content.',
+                    image : require('../assets/img/startup/xpoiled_photo2.png')
+                },
+                {
+                    title: 'Slide #2',
+                    content: 'Slide 2 content.',
+                    image : require('../assets/img/startup/xpoiled_photo3.png')
+                },
+                {
+                    title: 'Slide #2',
+                    content: 'Slide 2 content.',
+                    image : require('../assets/img/startup/xpoiled_photo4.png')
+                },
+                {
+                    title: 'Slide #2',
+                    content: 'Slide 2 content.',
+                    image : require('../assets/img/startup/xpoiled_photo5.png')
+                },
+                {
+                    title: 'Slide #2',
+                    content: 'Slide 2 content.',
+                    image : require('../assets/img/startup/xpoiled_photo6.png')
+                },
+                {
+                    title: 'Slide #2',
+                    content: 'Slide 2 content.',
+                    image : require('../assets/img/startup/xpoiled_photo6.png')
+                },
+                {
+                    title: 'Slide #2',
+                    content: 'Slide 2 content.',
+                    image : require('../assets/img/startup/xpoiled_photo7.png')
+                },
+                {
+                    title: 'Slide #2',
+                    content: 'Slide 2 content.',
+                    image : require('../assets/img/startup/xpoiled_photo8.png')
+                }
+            ],
+            //real
             modalShow: false,
             hashTag : this.$store.getters.getHashTag,
             deviceSize : window.innerWidth,
@@ -563,6 +760,25 @@ export default {
             for(let i=1; i<=this.images.length; i++) {
                 this.img_src = '../assets/img/xpoiled.png';
             }
+        },
+        setSliderHeight() {
+            let newHeight = '700px'
+            if ( 1200 < this.window.width && this.window.width <= 1400 ) {
+                 newHeight = '600px' // calculate a height here later
+            } else if ( 1000 < this.window.width && this.window.width <= 1200 ) {
+                newHeight = '500px'
+            } else if ( 800 < this.window.width && this.window.width <= 1000 ) {
+                newHeight = '400px'
+            } else if ( 600 < this.window.width && this.window.width <= 800 ) {
+                newHeight = '350px'
+            } else if ( 400 < this.window.width && this.window.width <= 600 ) {
+                newHeight = '300px'
+            } else if ( 300 < this.window.width && this.window.width <= 400 ) {
+                newHeight = '250px'
+            } else if ( this.window.width <= 300 ) {
+                newHeight = '200px'
+            }
+            return newHeight
         }
     },
     destroyed() {
@@ -637,6 +853,11 @@ button {
     height: 750px;
     margin-bottom: 300px;
 }
+.items { 
+    width: 50%;
+    height: 500px;
+    display: flex; 
+} 
 @media (max-width: 1400px) {
     #row {
         height: 700px;
@@ -647,6 +868,11 @@ button {
         height: 1250px;
         margin-bottom: 100px;
     }
+    .items { 
+        width: 50%;
+        height: 700px;
+        display: flex; 
+    } 
 }
 @media (max-width: 1200px) {
     #row {
@@ -658,6 +884,11 @@ button {
         height: 1100px;
         margin-bottom: 100px;
     }
+    .items { 
+        width: 50%;
+        height: 620px;
+        display: flex; 
+    } 
 }
 @media (max-width: 1100px) {
     #row {
@@ -669,6 +900,11 @@ button {
         height: 1100px;
         margin-bottom: 100px;
     }
+    .items { 
+        width: 50%;
+        height: 620px;
+        display: flex; 
+    } 
 }
 
 @media (max-width: 1000px) {
@@ -681,6 +917,11 @@ button {
         height: 900px;
         margin-bottom: 150px;
     }
+    .items { 
+        width: 50%;
+        height: 620px;
+        display: flex; 
+    } 
 }
 @media (max-width: 800px) {
     #row {
@@ -692,6 +933,11 @@ button {
         height: 800px;
         margin-bottom: 150px;
     }
+    .items { 
+        width: 50%;
+        height: 500px;
+        display: flex; 
+    } 
 }
 @media (max-width: 600px) {
     #row {
@@ -703,6 +949,11 @@ button {
         height: 610px;
         margin-bottom: 0px;
     }
+    .items { 
+        width: 50%;
+        height: 350px;
+        display: flex; 
+    } 
 }
 @media (max-width: 500px) {
     #row {
@@ -714,6 +965,11 @@ button {
         height: 530px;
         margin-bottom: 55px;
     }
+    .items { 
+        width: 50%;
+        height: 300px;
+        display: flex; 
+    } 
 }
 @media (max-width: 440px) {
     #row {
@@ -725,12 +981,60 @@ button {
         height: 388px;
         margin-bottom: 55px;
     }
+    .items { 
+        width: 50%;
+        height: 250px;
+        display: flex; 
+    } 
 }
-.items { 
-    display: flex; 
-    justify-content: space-around; 
-} 
-img {
-    object-fit: cover;
+/* infinite bar */
+.vifnslb-container {
+    /* overflow: inherit; */
+}
+.vifnslb-element {
+    /* height: 300px; */
+}
+.vifnslb-bar {
+    /* width: 30%; */
+}
+.barImage {
+    /* width: 100%;
+    height: 100%;
+    object-fit: cover; */
+}
+
+/* vueperslider */
+/* .vueperslides__inner {
+    height: inherit !important;
+}
+.vueperslides__parallax-wrapper {
+    height: inherit !important;
+} */
+.thumbnails {
+  margin: auto;
+  max-width: none;
+}
+
+.thumbnails .vueperslide {
+  box-sizing: border-box;
+  border: 1px solid #fff;
+  transition: 0.3s ease-in-out;
+  opacity: 0.7;
+  cursor: pointer;
+  /* background-size: contain; */
+  background-repeat: no-repeat; 
+  background-position: center center;
+}
+
+.thumbnails .vueperslide--active {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  opacity: 1;
+  border-color: #000;
+  /* background-size: contain; */
+  background-repeat: no-repeat; 
+  background-position: center center;
+}
+.imageBackground {
+    background-image: url('@/assets/img/startup/xpoiled_photo6.png');
 }
 </style>

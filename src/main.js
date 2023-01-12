@@ -15,6 +15,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import InfiniteSlideBar from 'vue-infinite-slide-bar'
 Vue.component('infinite-slide-bar', InfiniteSlideBar)
 
+
 // Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
