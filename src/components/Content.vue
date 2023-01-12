@@ -17,43 +17,12 @@
             <!-- ################################################# -->
             <!-- ################### FOR TEST ###################-->
             <!-- ################################################# -->
-            <!-- <b-row id="row" align-v="center" v-show="getPackageHashTag === 'all'">
-                <div class="imageBackground"></div>
-            </b-row> -->
-            <b-row id="row" align-v="center" v-show="getPackageHashTag === 'all'">
-                <b-col cols="12" align-self="center">
-                    <!-- <infinite-slide-bar duration="80s" :barStyle="{ background: '#000000', padding: '5px 0', overflow: 'inherit', height: '900px', height: setSliderHeight() }"> -->
-                    <infinite-slide-bar duration="40s" paused :barStyle="{ background: '#000000'}">
-                        <div class="items" @click="clickImgtoModal($event)">
-                            <b-col 
-                                class="f-left pd-t-8px mg-r-10px" 
-                                align-self="end"
-                                v-for="(slide, i) in slides" :key="i"
-                            >
-                                <div 
-                                    class="imageBackground" 
-                                    :style="{ 'background': 'url(' + slide.image + ') center / cover no-repeat'}"></div>
-                                <!-- <b-img thumbnail fluid :src="slide.image" alt="Image 1" style="background-size: cover;"></b-img> -->
-                                <!-- :style="{ 'background': 'url(' + slide.image + ') center no-repeat', 'background-size': 'contain', 'width' : '300px'}"></div> -->
-                            </b-col>
-                        </div>
-                    </infinite-slide-bar>
-                    <div class="inlineHashTag" style="text-align: center; padding-top: 3em;">
-                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
-                        <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
-                        <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
-                    </div>
-                </b-col>
-            </b-row>
-            <!-- ################################################# -->
-            <!-- ################### ALL CATA ###################-->
-            <!-- ################################################# -->
-            <b-row id="rowSquare" align-v="stretch" v-show="getPackageHashTag === 'all'" >
+            <!-- <b-row id="rowSquare" align-v="stretch" v-show="getPackageHashTag === 'all'" >
                 <b-col cols="12" align-self="center">
                     <vueper-slides
                     fade
                     autoplay
-                    :visible-slides="5"
+                    :visible-slides="6"
                     slide-multiple
                     :slide-ratio="1 / 4"
                     :bullets="false"
@@ -69,11 +38,42 @@
                         <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
                     </div>
                 </b-col>
+            </b-row> -->
+            <!-- <b-row id="row" align-v="center" v-show="getPackageHashTag === 'all'">
+                <div class="imageBackground"></div>
+            </b-row> -->
+            <!-- ################################################# -->
+            <!-- ################### ALL CATA ###################-->
+            <!-- ################################################# -->
+            <b-row id="row" align-v="center" v-show="getPackageHashTag === 'all'">
+                <b-col cols="12" align-self="center">
+                    <!-- <infinite-slide-bar duration="80s" :barStyle="{ background: '#000000', padding: '5px 0', overflow: 'inherit', height: '900px', height: setSliderHeight() }"> -->
+                    <infinite-slide-bar duration="40s" paused :barStyle="{ background: '#000000'}">
+                        <div class="items" @click="clickImgtoModal($event)">
+                            <b-col 
+                                class="f-left pd-t-8px mg-r-10px" 
+                                align-self="end"
+                                v-for="(slide, i) in slides" :key="i"
+                            >
+                                <div 
+                                    class="imageBackground" 
+                                    :style="{ 'background': 'url(' + slide.image + ') center / cover no-repeat', 'cursor' : 'pointer'}"></div>
+                                <!-- <b-img thumbnail fluid :src="slide.image" alt="Image 1" style="background-size: cover;"></b-img> -->
+                                <!-- :style="{ 'background': 'url(' + slide.image + ') center no-repeat', 'background-size': 'contain', 'width' : '300px'}"></div> -->
+                            </b-col>
+                        </div>
+                    </infinite-slide-bar>
+                    <div class="inlineHashTag" style="text-align: center;">
+                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
+                        <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
+                        <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
+                    </div>
+                </b-col>
             </b-row>
             <b-row id="rowSquare" align-v="stretch" v-show="getPackageHashTag === 'all'" >
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
                     <!-- <VLazyImage src="../assets/img/startup/xpoiled_detail.png" /> -->
-                    <img src="../assets/img/startup/xpoiled_detail.png" id="startup/xpoiled_detail.png" @click="clickImgtoModal($event)" />
+                    <img src="../assets/img/startup/xpoiled_detail.png" id="startup/xpoiled_detail.png xpoiled" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
                         <button class="button" name = "startup" @click="setHashTag($event.currentTarget.name)">#Startup</button>
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
@@ -115,7 +115,7 @@
                     </div>
                 </b-col>
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
-                    <img src="../assets/img/digitalContent/pinkLipps.png" id="digitalContent/pinkLipps.png" @click="clickImgtoModal($event)"/>
+                    <img src="../assets/img/pinklipps/pinkLipps.png" id="pinklipps/pinkLipps.png pinklipps" @click="clickImgtoModal($event)"/>
                     <div class="inlineHashTag">
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
@@ -216,7 +216,7 @@
                     </div>
                 </b-col>
                 <b-col cols="6" align-self="end">
-                    <img src="../assets/img/cosmetic/cosmetic_detail.png" id="cosmetic/cosmetic_detail.png" @click="clickImgtoModal($event)" />
+                    <img src="../assets/img/pinklipps/cosmetic_detail.png" id="pinklipps/cosmetic_detail.png pinklipps" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "package" @click="setHashTag($event.currentTarget.name)">#Package</button>
@@ -227,28 +227,6 @@
             <!-- ################################################# -->
             <!-- ################### Branding ###################-->
             <!-- ################################################# -->
-            <b-row id="rowSquare" align-v="stretch" v-show="getPackageHashTag === 'branding'" >
-                <b-col cols="12" align-self="center">
-                    <vueper-slides
-                    fade
-                    autoplay
-                    :visible-slides="6"
-                    slide-multiple
-                    :slide-ratio="1 / 4"
-                    :bullets="false"
-                    :arrows-outside="false">
-                        <vueper-slide 
-                            v-for="(slide, i) in slides" :key="i" :image="slide.image"
-                            :style="'background-color: ' + ['#ff5252', '#42b983'][i % 2]"
-                        />
-                    </vueper-slides>
-                    <div class="inlineHashTag" style="text-align: center; padding-top: 3em;">
-                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
-                        <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
-                        <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
-                    </div>
-                </b-col>
-            </b-row>
             <b-row id="rowSquare" align-v="stretch" v-show="getPackageHashTag === 'branding'" >
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
                     <img src="../assets/img/startup/xpoiled_detail.png" id="startup/xpoiled_detail.png" @click="clickImgtoModal($event)" />
@@ -293,7 +271,7 @@
                     </div>
                 </b-col> -->
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
-                    <img src="../assets/img/digitalContent/pinkLipps.png" id="digitalContent/pinkLipps.png" @click="clickImgtoModal($event)" />
+                    <img src="../assets/img/pinklipps/pinkLipps.png" id="pinklipps/pinkLipps.png pinklipps" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
@@ -305,28 +283,6 @@
             <!-- ################################################# -->
             <!-- ################### digitalContent ################### -->
             <!-- ################################################# -->
-            <b-row id="rowSquare" align-v="stretch" v-show="getPackageHashTag === 'digitalContent'" >
-                <b-col cols="12" align-self="center">
-                    <vueper-slides
-                    fade
-                    autoplay
-                    :visible-slides="6"
-                    slide-multiple
-                    :slide-ratio="1 / 4"
-                    :bullets="false"
-                    :arrows-outside="false">
-                        <vueper-slide 
-                            v-for="(slide, i) in slides" :key="i" :image="slide.image"
-                            :style="'background-color: ' + ['#ff5252', '#42b983'][i % 2]"
-                        />
-                    </vueper-slides>
-                    <div class="inlineHashTag" style="text-align: center; padding-top: 3em;">
-                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
-                        <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
-                        <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
-                    </div>
-                </b-col>
-            </b-row>
             <b-row id="row" align-v="stretch" v-show="getPackageHashTag === 'digitalContent'" >
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
                     <img src="../assets/img/startup/xpoiled_detail.png" id="startup/xpoiled_detail.png" @click="clickImgtoModal($event)" />
@@ -371,7 +327,7 @@
                     </div>
                 </b-col>
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
-                    <img src="../assets/img/digitalContent/pinkLipps.png" id="digitalContent/pinkLipps.png" @click="clickImgtoModal($event)" />
+                    <img src="../assets/img/pinklipps/pinkLipps.png" id="pinklipps/pinkLipps.png pinklipps" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
@@ -427,7 +383,7 @@
                     </div>
                 </b-col>
                 <b-col cols="6" align-self="end">
-                    <img src="../assets/img/cosmetic/cosmetic_detail.png" id="cosmetic/cosmetic_detail.png" @click="clickImgtoModal($event)" />
+                    <img src="../assets/img/pinklipps/cosmetic_detail.png" id="pinklipps/cosmetic_detail.png pinklipps" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "package" @click="setHashTag($event.currentTarget.name)">#Package</button>
@@ -451,28 +407,6 @@
             <!-- ################################################# -->
             <!-- ################### Brand Strategy ################### -->
             <!-- ################################################# -->
-            <b-row id="rowSquare" align-v="stretch" v-show="getPackageHashTag === 'brandStrategy'" >
-                <b-col cols="12" align-self="center">
-                    <vueper-slides
-                    fade
-                    autoplay
-                    :visible-slides="6"
-                    slide-multiple
-                    :slide-ratio="1 / 4"
-                    :bullets="false"
-                    :arrows-outside="false">
-                        <vueper-slide 
-                            v-for="(slide, i) in slides" :key="i" :image="slide.image"
-                            :style="'background-color: ' + ['#ff5252', '#42b983'][i % 2]"
-                        />
-                    </vueper-slides>
-                    <div class="inlineHashTag" style="text-align: center; padding-top: 3em;">
-                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
-                        <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
-                        <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
-                    </div>
-                </b-col>
-            </b-row>
             <b-row id="row" align-v="stretch" v-show="getPackageHashTag === 'brandStrategy'" >
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
                     <img src="../assets/img/startup/xpoiled_detail.png" id="startup/xpoiled_detail.png" @click="clickImgtoModal($event)" />
@@ -488,7 +422,7 @@
                     </div>
                 </b-col>
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
-                    <img src="../assets/img/digitalContent/pinkLipps.png" id="digitalContent/pinkLipps.png" @click="clickImgtoModal($event)" />
+                    <img src="../assets/img/pinklipps/pinkLipps.png" id="pinklipps/pinkLipps.png pinklipps" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
@@ -574,16 +508,13 @@
 
 <script>
 import ContentDetail from './modal/ContentDetail.vue'
-import VLazyImage from "v-lazy-image";
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
-
 export default {
     name : 'dummy-vue',
     components : {
         ContentDetail,
-        VLazyImage,
-        VueperSlides, VueperSlide 
+        VueperSlides, VueperSlide
     },
     data() {
         return {
@@ -674,11 +605,11 @@ export default {
             cosmeticImages : [
                 {
                     id: '1',
-                    image: 'cosmetic/cosmetic.jpg'
+                    image: 'pinklipps/cosmetic.jpg'
                 },
                 {
                     id: '2',
-                    image: 'cosmetic/cosmetic_detail.png'
+                    image: 'pinklipps/cosmetic_detail.png'
                 }
             ],
             xpoiledImg: {
@@ -687,7 +618,7 @@ export default {
             },
             cosmeticImg: {
                 index: 0,
-                cosmeticImgSrc: 'cosmetic/cosmetic.jpg'
+                cosmeticImgSrc: 'pinklipps/cosmetic.jpg'
             },
             
         }
@@ -733,10 +664,11 @@ export default {
             } else {
                 this.isImg = true
             }
+            
             this.$store.commit('setModalInfo', {
                 imgName : event.currentTarget.id, 
-                content : this.$store.state.contentDetails[event.currentTarget.id].content,
-                isImg : this.isImg
+                isImg : this.isImg,
+                catagory : event.currentTarget.id.split(' ')[1]
             })
         },
         setHashTag(hashTag) {
@@ -861,7 +793,7 @@ button {
 .imageBackground {
     /* background: url('@/assets/img/startup/xpoiled_photo6.png'); */
     height: 500px;
-    width: 300px;
+    width: 400px;
 }
 @media (max-width: 1400px) {
     #row {
@@ -930,7 +862,7 @@ button {
     .imageBackground {
         /* background: url('@/assets/img/startup/xpoiled_photo6.png'); */
         height: 450px;
-        width: 300px;
+        width: 400px;
     }
 }
 @media (max-width: 800px) {
@@ -956,7 +888,7 @@ button {
 }
 @media (max-width: 600px) {
     #row {
-        height: 350px;
+        height: 450px;
         padding-bottom: 2em;
         margin-bottom: 30px;
     }
@@ -1004,32 +936,10 @@ button {
     .imageBackground {
         /* background: url('@/assets/img/startup/xpoiled_photo6.png'); */
         height: 200px;
-        width: 300px;
+        width: 400px;
     }
 }
 /* infinite bar */
-.vifnslb-container {
-    /* overflow: inherit; */
-}
-.vifnslb-element {
-    /* height: 300px; */
-}
-.vifnslb-bar {
-    /* width: 30%; */
-}
-.barImage {
-    /* width: 100%;
-    height: 100%;
-    object-fit: cover; */
-}
-
-/* vueperslider */
-/* .vueperslides__inner {
-    height: inherit !important;
-}
-.vueperslides__parallax-wrapper {
-    height: inherit !important;
-} */
 .thumbnails {
   margin: auto;
   max-width: none;

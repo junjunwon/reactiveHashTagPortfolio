@@ -9,6 +9,7 @@
             style="background-color:black;"
             modal-class="modal-fullscreen">
             <b-row id="rowSquare" align-v="stretch">
+                <b-row>
                 <vueper-slides
                     fade
                     :visible-slides="3"
@@ -22,11 +23,25 @@
                     :fixed-height="setSliderHeight()"
                 >
                     <vueper-slide 
-                            v-for="(slide, j) in slides" :key="j" :image="slide.image"
+                            v-for="(slide, j) in chooseSlide" :key="j" :image="slide.image"
                             :style="'background-color: ' + ['#ff5252', '#42b983'][j % 2]"
                             @click.native="test()"
-                        />
+                    >
+                    </vueper-slide>
                 </vueper-slides>
+                </b-row>
+                <b-row>
+                    <b-col cols="2"></b-col>
+                    <b-col cols="8">
+                        <div style="color:white; text-align:center;">
+                            <div>{{content.header}}</div>
+                            <div>{{content.rate}}</div>
+                            <br />
+                            <div>{{content.detail}}</div>
+                        </div>
+                    </b-col>
+                    <b-col cols="2"></b-col>
+                </b-row>
                 <!-- <b-col id="colModal" cols="6" align-self="start">
                     <img v-show="getModalInfo.isImg" :src="showImage" />
                     <video v-show="!getModalInfo.isImg" webkit-playsinline playsinline loop autoplay muted preload="auto" >
@@ -69,7 +84,8 @@ export default {
     },
     data() {
         return {
-            slides: [
+            slides: [],
+            slidesXpoiled: [
                 {
                     title: 'Slide #1',
                     content: 'Slide 1 content.',
@@ -132,6 +148,34 @@ export default {
                     image : require('../../assets/img/startup/xpoiled_photo8.png')
                 }
             ],
+            slidesPinklipps: [
+                {
+                    title: 'Slide #1',
+                    content: 'Slide 1 content.',
+                    image : require('../../assets/img/pinklipps/cosmetic_detail.png')
+                },
+                {
+                    title: 'Slide #1',
+                    content: 'Slide 1 content.',
+                    image : require('../../assets/img/pinklipps/cosmetic.jpg')
+                },
+                {
+                    title: 'Slide #1',
+                    content: 'Slide 1 content.',
+                    image : require('../../assets/img/pinklipps/pinkLipps.png')
+                }
+            ],
+            content : {},
+            contentXpoiled: {
+                header : 'XPOILED / Nail Brand (My brand)',
+                rate : 'PARTICIPATION RATE : 100% (whole work categories)',
+                detail : 'Xpoiled is my own brand started in 2021 that I have been working whole resposiblities beyond design duties. The brand name is named combining Spoiled + X (genderless, unlimited) which emphasizes the function of a fashion accessory for everyone who is genderless. It targets competitive brand image to be able to get the upper hand among existing big nail brands that are only for the women preference. This nail product category has been extended not only press-on nail for women but also nail tattoo stickers for men. The brand look has been inspired by Brooklyn street style. It has conveyed the Brooklyn street art vibe throughout the package, website, and all of its brand design assets, which will be liked by everyone who is into street culture.'
+            },
+            contentPinklipps: {
+                header : 'Pinklipps / Makeup Brand',
+                rate : 'PARTICIPATION RATE : 100% (whole work categories)',
+                detail : 'The Pinklipps is a brand created by a professional makeup artist. It needed to beef up brand identity and create a more cohesive brand look. I strengthened the brand story in order to deliver a cohesive marketing touchpoint and brand look as well. According to recreated brand fundamentals, I created packaging, brand identity system, and art direction. As a result, Pinklipps has been approved to shop in TARGET in 2022. I’m working on the POG display for the TARGET. The Pinkllips fully renewed by me will be launched in 2022.'
+            },
             window: {
                 width: 0,
                 height: 0
@@ -144,6 +188,9 @@ export default {
         this.handleResize();
     },
     computed : {
+        chooseSlide () {
+            return this.test() 
+        },
         modalShow () {
             console.log('modalshow')
             return this.propModalShow
@@ -165,7 +212,18 @@ export default {
     },
     methods: {
         test() {
-            alert('abc')
+            if(this.$store.getters.getModalInfo.catagory === 'xpoiled') {
+                this.slides = this.slidesXpoiled
+                this.content = this.contentXpoiled
+            } else if(this.$store.getters.getModalInfo.catagory === 'pinklipps') {
+                this.slides = this.slidesPinklipps
+                this.content = this.contentPinklipps
+            } else {
+                this.slides = []
+                this.content = {}
+            }
+            
+            return this.slides 
         },
         handleResize() {
             this.window.width = window.innerWidth;

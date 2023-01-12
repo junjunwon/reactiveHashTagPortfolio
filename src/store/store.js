@@ -14,9 +14,9 @@ export const store = new Vuex.Store({
             resume : 'https://docs.google.com/document/d/15-CXM8VAWNMwLF29aSq1yT8glhkPSum9maEPwW4KeaI/edit'
         },
         modalInfo : {
-            imgName : 'startup/xpoiled_detail.png',
-            content :'',
-            isImg : true
+            imgName : '',
+            isImg : true,
+            catagory :''
         },
         contentDetails: {
             'startup/xpoiled_detail.png' : {
@@ -79,10 +79,10 @@ export const store = new Vuex.Store({
         }
     },
     mutations: {
-        setModalInfo: function(state, {imgName, content, isImg}) {
+        setModalInfo: function(state, {imgName, isImg, catagory}) {
             state.modalInfo.imgName = imgName,
-            state.modalInfo.content = content,
-            state.modalInfo.isImg = isImg
+            state.modalInfo.isImg = isImg,
+            state.modalInfo.catagory = catagory
         },
         setActiveButton: function(state, payload) {
             state.activeButton = payload
