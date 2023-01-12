@@ -19,22 +19,22 @@
             <!-- ################################################# -->
             <!-- <b-row id="row" align-v="center" v-show="getPackageHashTag === 'all'">
                 <div class="imageBackground"></div>
-            </b-row>
+            </b-row> -->
             <b-row id="row" align-v="center" v-show="getPackageHashTag === 'all'">
                 <b-col cols="12" align-self="center">
-                    <infinite-slide-bar duration="80s" :barStyle="{ background: '#000000', padding: '5px 0', overflow: 'inherit', height: '900px'}">
-                    <infinite-slide-bar duration="140s" paused :barStyle="{ background: '#000000', height: setSliderHeight()}">
+                    <!-- <infinite-slide-bar duration="80s" :barStyle="{ background: '#000000', padding: '5px 0', overflow: 'inherit', height: '900px', height: setSliderHeight() }"> -->
+                    <infinite-slide-bar duration="40s" paused :barStyle="{ background: '#000000'}">
                         <div class="items" @click="clickImgtoModal($event)">
                             <b-col 
                                 class="f-left pd-t-8px mg-r-10px" 
                                 align-self="end"
                                 v-for="(slide, i) in slides" :key="i"
                             >
-                                <div v-bind:style="{ backgroundImage: 'url(' + slide.image + ')' }"></div>
-                                <b-img thumbnail fluid :src="slide.image" alt="Image 1" style="background-size: cover;"></b-img>
-                            </b-col>
-                            <b-col class="f-left pd-t-8px mg-r-10px" cols="1" align-self="end">
-                                <img src="../assets/img/cosmetic/cosmetic_detail.png" alt="" />
+                                <div 
+                                    class="imageBackground" 
+                                    :style="{ 'background': 'url(' + slide.image + ') center / cover no-repeat'}"></div>
+                                <!-- <b-img thumbnail fluid :src="slide.image" alt="Image 1" style="background-size: cover;"></b-img> -->
+                                <!-- :style="{ 'background': 'url(' + slide.image + ') center no-repeat', 'background-size': 'contain', 'width' : '300px'}"></div> -->
                             </b-col>
                         </div>
                     </infinite-slide-bar>
@@ -44,7 +44,7 @@
                         <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
                     </div>
                 </b-col>
-            </b-row> -->
+            </b-row>
             <!-- ################################################# -->
             <!-- ################### ALL CATA ###################-->
             <!-- ################################################# -->
@@ -858,6 +858,11 @@ button {
     height: 500px;
     display: flex; 
 } 
+.imageBackground {
+    /* background: url('@/assets/img/startup/xpoiled_photo6.png'); */
+    height: 500px;
+    width: 300px;
+}
 @media (max-width: 1400px) {
     #row {
         height: 700px;
@@ -922,6 +927,11 @@ button {
         height: 620px;
         display: flex; 
     } 
+    .imageBackground {
+        /* background: url('@/assets/img/startup/xpoiled_photo6.png'); */
+        height: 450px;
+        width: 300px;
+    }
 }
 @media (max-width: 800px) {
     #row {
@@ -938,6 +948,11 @@ button {
         height: 500px;
         display: flex; 
     } 
+    .imageBackground {
+        /* background: url('@/assets/img/startup/xpoiled_photo6.png'); */
+        height: 300px;
+        width: 300px;
+    }
 }
 @media (max-width: 600px) {
     #row {
@@ -986,6 +1001,11 @@ button {
         height: 250px;
         display: flex; 
     } 
+    .imageBackground {
+        /* background: url('@/assets/img/startup/xpoiled_photo6.png'); */
+        height: 200px;
+        width: 300px;
+    }
 }
 /* infinite bar */
 .vifnslb-container {
@@ -1033,8 +1053,5 @@ button {
   /* background-size: contain; */
   background-repeat: no-repeat; 
   background-position: center center;
-}
-.imageBackground {
-    background-image: url('@/assets/img/startup/xpoiled_photo6.png');
 }
 </style>
