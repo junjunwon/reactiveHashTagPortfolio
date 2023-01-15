@@ -21,8 +21,7 @@
                 <b-col cols="12" align-self="center">
                     <vueper-slides
                     fade
-                    autoplay
-                    :visible-slides="6"
+                    :visible-slides="3"
                     slide-multiple
                     :slide-ratio="1 / 4"
                     :bullets="false"
@@ -52,12 +51,12 @@
                         <div class="items" @click="clickImgtoModal($event)">
                             <b-col 
                                 class="f-left pd-t-8px mg-r-10px" 
-                                align-self="end"
+                                align-self="center"
                                 v-for="(slide, i) in slides" :key="i"
                             >
                                 <div 
                                     class="imageBackground" 
-                                    :style="{ 'background': 'url(' + slide.image + ') center / cover no-repeat', 'cursor' : 'pointer'}"></div>
+                                    :style="{ 'background': 'url(' + slide.image + ') center / contain no-repeat', 'cursor' : 'pointer'}"></div>
                                 <!-- <b-img thumbnail fluid :src="slide.image" alt="Image 1" style="background-size: cover;"></b-img> -->
                                 <!-- :style="{ 'background': 'url(' + slide.image + ') center no-repeat', 'background-size': 'contain', 'width' : '300px'}"></div> -->
                             </b-col>
@@ -86,8 +85,8 @@
                     </div>
                 </b-col>
                 <b-col cols="6" align-self="end">
-                    <video id="2022voty-vertical-main-cover.mp4" webkit-playsinline playsinline loop autoplay muted preload="auto" @click="clickImgtoModal($event)" >
-                        <source src="../assets/img/2022voty-vertical-main-cover.mp4" type="video/mp4" />
+                    <video id="2022voty-vertical-main-cover.mp4 " webkit-playsinline playsinline loop autoplay muted preload="auto" @click="clickImgtoModal($event)" >
+                        <source src="https://drive.google.com/uc?export=view&id=1G03FIjI1fsLKFkgSZfHTebBH20Ci7BY2" type="video/mp4" />
                     </video>
                     <div class="inlineHashTag">
                         <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
@@ -127,7 +126,7 @@
             </b-row>
             <b-row id="row" align-h="around" v-show="getPackageHashTag === 'all'">
                 <b-col cols="10" md="10" align-self="center">
-                    <img src="../assets/img/cosmetic/unicornGlow_main.png" id="cosmetic/unicornGlow_main.png" @click="clickImgtoModal($event)" />
+                    <img src="../assets/img/unicornGlow/unicornGlow_main.png" id="unicormGlow/unicornGlow_main.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "package" @click="setHashTag($event.currentTarget.name)">#Package</button>
@@ -148,7 +147,7 @@
                 <b-col cols="2" md="2">
                 </b-col>
                 <b-col cols="10" md="10" align-self="center">
-                    <img src="../assets/img/cosmetic/tutti_main.png" alt="" id="digitalContent/tutti_main.png" @click="clickImgtoModal($event)" />
+                    <img src="../assets/img/tutti/tutti_main.png" alt="" id="digitalContent/tutti_main.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
                         <button class="button" name = "productDesign" @click="setHashTag($event.currentTarget.name)">#Product Design</button>
                         <!-- <div class="inlineLetter">Cosmetic Package</div> -->
@@ -197,7 +196,8 @@
                     </div>
                 </b-col>
                 <b-col cols="6" align-self="end">
-                    <img src="../assets/img/cosmetic/lock_main.png" id="cosmetic/lock_main.png" @click="clickImgtoModal($event)" />
+                    <!-- <img src="../assets/img/lockColor/lock_main.png" id="lockColor/lock_main.png" @click="clickImgtoModal($event)" /> -->
+                    <img src="https://drive.google.com/uc?export=view&id=1ReQZuhfPonaRFufLQv0H6YjeMTd57uOX" id="lockColor/lock_main.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
                         <button class="button" name = "photography" @click="setHalkkkshTag($event.currentTarget.name)">#Photography</button>
                         <button class="button" name = "displayDesign" @click="setHalkkkshTag($event.currentTarget.name)">#Display Design</button>
@@ -243,7 +243,8 @@
                 </b-col>
                 <b-col cols="6" align-self="end">
                     <video webkit-playsinline playsinline loop autoplay muted preload="auto">
-                        <source src="../assets/img/2022voty-vertical-main-cover.mp4" type="video/mp4" id="2022voty-vertical-main-cover.mp4" @click="clickImgtoModal($event)" />
+                        <!-- <source src="../assets/img/2022voty-vertical-main-cover.mp4" type="video/mp4" id="2022voty-vertical-main-cover.mp4" @click="clickImgtoModal($event)" /> -->
+                        <source src="https://drive.google.com/uc?export=view&id=1G03FIjI1fsLKFkgSZfHTebBH20Ci7BY2" type="video/mp4" id="2022voty-vertical-main-cover.mp4" @click="clickImgtoModal($event)" />
                     </video>
                     <div class="inlineHashTag">
                         <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
@@ -299,7 +300,7 @@
                 </b-col>
                 <b-col cols="6" align-self="center">
                     <video webkit-playsinline playsinline loop autoplay muted preload="auto">
-                        <source src="../assets/img/2022voty-vertical-main-cover.mp4" type="video/mp4" id="2022voty-vertical-main-cover.mp4" @click="clickImgtoModal($event)" />
+                        <source src="https://drive.google.com/uc?export=view&id=1G03FIjI1fsLKFkgSZfHTebBH20Ci7BY2" type="video/mp4" id="2022voty-vertical-main-cover.mp4" @click="clickImgtoModal($event)" />
                     </video>
                     <div class="inlineHashTag">
                         <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
@@ -351,7 +352,7 @@
             <!-- ################################################# -->
             <b-row id="row" align-h="around" v-show="getPackageHashTag === 'packaging'">
                 <b-col cols="10" md="10" align-self="center">
-                    <img src="../assets/img/cosmetic/unicornGlow_main.png" id="cosmetic/unicornGlow_main.png" @click="clickImgtoModal($event)" />
+                    <img src="../assets/img/unicornGlow/unicornGlow_main.png" id="unicornGlow/unicornGlow_main.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
@@ -365,7 +366,7 @@
                 <b-col cols="2" md="2">
                 </b-col>
                 <b-col cols="10" md="10" align-self="center">
-                    <img src="../assets/img/cosmetic/tutti_main.png" id="cosmetic/tutti_main.png" @click="clickImgtoModal($event)" />
+                    <img src="../assets/img/tutti/tutti_main.png" id="tutti/tutti_main.png" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
                         <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
                         <button class="button" name = "package" @click="setHashTag($event.currentTarget.name)">#Package</button>
@@ -773,8 +774,8 @@ button {
     width: 100%;
     font-size: 15px;
 }
-#col {
-    height: 100%
+.row > * {
+    outline: none;
 }
 #rowSquare {
     /* height: 100%; */
@@ -787,13 +788,12 @@ button {
 }
 .items { 
     width: 50%;
-    height: 500px;
+    height: 600px;
     display: flex; 
 } 
 .imageBackground {
-    /* background: url('@/assets/img/startup/xpoiled_photo6.png'); */
-    height: 500px;
-    width: 400px;
+    height: 600px;
+    width: 600px;
 }
 @media (max-width: 1400px) {
     #row {
@@ -805,11 +805,6 @@ button {
         height: 1250px;
         margin-bottom: 100px;
     }
-    .items { 
-        width: 50%;
-        height: 700px;
-        display: flex; 
-    } 
 }
 @media (max-width: 1200px) {
     #row {
@@ -821,11 +816,6 @@ button {
         height: 1100px;
         margin-bottom: 100px;
     }
-    .items { 
-        width: 50%;
-        height: 620px;
-        display: flex; 
-    } 
 }
 @media (max-width: 1100px) {
     #row {
@@ -837,11 +827,6 @@ button {
         height: 1100px;
         margin-bottom: 100px;
     }
-    .items { 
-        width: 50%;
-        height: 620px;
-        display: flex; 
-    } 
 }
 
 @media (max-width: 1000px) {
@@ -853,16 +838,6 @@ button {
     #rowSquare {
         height: 900px;
         margin-bottom: 150px;
-    }
-    .items { 
-        width: 50%;
-        height: 620px;
-        display: flex; 
-    } 
-    .imageBackground {
-        /* background: url('@/assets/img/startup/xpoiled_photo6.png'); */
-        height: 450px;
-        width: 400px;
     }
 }
 @media (max-width: 800px) {
@@ -881,9 +856,8 @@ button {
         display: flex; 
     } 
     .imageBackground {
-        /* background: url('@/assets/img/startup/xpoiled_photo6.png'); */
-        height: 300px;
-        width: 300px;
+        height: 500px;
+        width: 500px;
     }
 }
 @media (max-width: 600px) {
@@ -898,9 +872,13 @@ button {
     }
     .items { 
         width: 50%;
-        height: 350px;
+        height: 200px;
         display: flex; 
     } 
+    .imageBackground {
+        height: 200px;
+        width: 400px;
+    }
 }
 @media (max-width: 500px) {
     #row {
@@ -912,11 +890,6 @@ button {
         height: 530px;
         margin-bottom: 55px;
     }
-    .items { 
-        width: 50%;
-        height: 300px;
-        display: flex; 
-    } 
 }
 @media (max-width: 440px) {
     #row {
@@ -928,13 +901,15 @@ button {
         height: 388px;
         margin-bottom: 55px;
     }
+
+}
+@media (max-width: 440px) {
     .items { 
         width: 50%;
-        height: 250px;
+        height: 200px;
         display: flex; 
     } 
     .imageBackground {
-        /* background: url('@/assets/img/startup/xpoiled_photo6.png'); */
         height: 200px;
         width: 400px;
     }

@@ -38,8 +38,8 @@ export const store = new Vuex.Store({
             'digitalContent/pinkLipps.png' : {
                 content : 'digitalContent/pinkLipps.png'
             },
-            'cosmetic/unicornGlow_main.png' : {
-                content : 'content is cosmetic/unicornGlow_main.png'
+            'unicornGlow/unicornGlow_main.png' : {
+                content : 'content is unicornGlow/unicornGlow_main.png'
             },
             'digitalContent/tutti_main.png' : {
                 content : 'digitalContent/tutti_main.png'
@@ -56,8 +56,8 @@ export const store = new Vuex.Store({
             'cosmetic/sooae_main.png' : {
                 content : 'cosmetic/sooae_main.png'
             },
-            'cosmetic/lock_main.png' : {
-                content : 'cosmetic/lock_main.png'
+            'lockColor/lock_main.png' : {
+                content : 'lockColor/lock_main.png'
             },
             'cosmetic/cosmetic_detail.png' : {
                 content : 'cosmetic/cosmetic_detail.png'

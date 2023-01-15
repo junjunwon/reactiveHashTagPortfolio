@@ -70,6 +70,7 @@
 
 <script>
 import { VueperSlides, VueperSlide } from 'vueperslides'
+import imageList from '@/json/imageList.json'
 
 export default {
     name : 'ContentDetail',
@@ -85,6 +86,7 @@ export default {
     data() {
         return {
             slides: [],
+            imageList : imageList,
             slidesXpoiled: [
                 {
                     title: 'Slide #1',
@@ -148,7 +150,8 @@ export default {
                     image : require('../../assets/img/startup/xpoiled_photo8.png')
                 }
             ],
-            slidesPinklipps: [
+            // slidesPinklipps: [],
+            slidesPinklippsBak: [
                 {
                     title: 'Slide #1',
                     content: 'Slide 1 content.',
@@ -163,6 +166,76 @@ export default {
                     title: 'Slide #1',
                     content: 'Slide 1 content.',
                     image : require('../../assets/img/pinklipps/pinkLipps.png')
+                },
+                {
+                    title: 'Slide #1',
+                    content: 'Slide 1 content.',
+                    image : require('../../assets/img/pinklipps/pinkLipps2.png')
+                },
+                {
+                    title: 'Slide #1',
+                    content: 'Slide 1 content.',
+                    image : require('../../assets/img/pinklipps/pinkLipps3.png')
+                },
+                {
+                    title: 'Slide #1',
+                    content: 'Slide 1 content.',
+                    image : require('../../assets/img/pinklipps/pinkLipps4.png')
+                },
+                {
+                    title: 'Slide #1',
+                    content: 'Slide 1 content.',
+                    image : require('../../assets/img/pinklipps/pinkLipps5.png')
+                },
+                {
+                    title: 'Slide #1',
+                    content: 'Slide 1 content.',
+                    image : require('../../assets/img/pinklipps/pinkLipps6.png')
+                },
+                {
+                    title: 'Slide #1',
+                    content: 'Slide 1 content.',
+                    image : require('../../assets/img/pinklipps/pinkLipps7.png')
+                },
+                {
+                    title: 'Slide #1',
+                    content: 'Slide 1 content.',
+                    image : require('../../assets/img/pinklipps/pinkLipps8.png')
+                },
+                {
+                    title: 'Slide #1',
+                    content: 'Slide 1 content.',
+                    image : require('../../assets/img/pinklipps/pinkLipps9.png')
+                },
+                {
+                    title: 'Slide #1',
+                    content: 'Slide 1 content.',
+                    image : require('../../assets/img/pinklipps/pinkLipps10.png')
+                },
+                {
+                    title: 'Slide #1',
+                    content: 'Slide 1 content.',
+                    image : require('../../assets/img/pinklipps/pinkLipps11.png')
+                },
+                {
+                    title: 'Slide #1',
+                    content: 'Slide 1 content.',
+                    image : require('../../assets/img/pinklipps/pinkLipps12.png')
+                },
+                {
+                    title: 'Slide #1',
+                    content: 'Slide 1 content.',
+                    image : require('../../assets/img/pinklipps/pinkLipps13.png')
+                },
+                {
+                    title: 'Slide #1',
+                    content: 'Slide 1 content.',
+                    image : require('../../assets/img/pinklipps/pinkLipps14.png')
+                },
+                {
+                    title: 'Slide #1',
+                    content: 'Slide 1 content.',
+                    image : require('../../assets/img/pinklipps/pinkLipps15.png')
                 }
             ],
             content : {},
@@ -186,6 +259,8 @@ export default {
     created() {
         window.addEventListener('resize', this.handleResize);
         this.handleResize();
+    },
+    mounted () {
     },
     computed : {
         chooseSlide () {
@@ -216,7 +291,7 @@ export default {
                 this.slides = this.slidesXpoiled
                 this.content = this.contentXpoiled
             } else if(this.$store.getters.getModalInfo.catagory === 'pinklipps') {
-                this.slides = this.slidesPinklipps
+                this.slides = this.imageList.slidesPinklipps
                 this.content = this.contentPinklipps
             } else {
                 this.slides = []
@@ -318,3 +393,5 @@ export default {
 } */
 
 </style>
+
+// https://drive.google.com/file/d/1ReQZuhfPonaRFufLQv0H6YjeMTd57uOX/view?usp=sharing
