@@ -12,4 +12,4 @@
 - https://biigpongsatorn.github.io/#/vue-infinite-slide-bar (무한)
 
 - https://antoniandre.github.io/vueper-slides/ <- **이걸로 쓰자!!!**
-- https://madewithvuejs.com/blog/top-vue-js-slider-components
+- https://madewithvuejs.com/blog/top-vue-js-slider-components# lemonfacekim.github.io
