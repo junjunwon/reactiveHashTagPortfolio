@@ -84,7 +84,7 @@ export default {
             this.window.height = window.innerHeight;
         },
         isMobile() {
-            console.log('window.innerHeight in IntroDetail is ', window.innerWidth);
+            // console.log('window.innerHeight in IntroDetail is ', window.innerWidth);
             if(this.window.width <= 900) {
                 return true
             } else {
@@ -97,10 +97,10 @@ export default {
             // 스크롤 후의 탑
             const afterScrollValue = document.documentElement.scrollTop;
 
-            console.log('beforeScrollTop')
-            console.log(beforeScrollTop)
-            console.log('afterScrollValue')
-            console.log(afterScrollValue)
+            // console.log('beforeScrollTop')
+            // console.log(beforeScrollTop)
+            // console.log('afterScrollValue')
+            // console.log(afterScrollValue)
             // if(afterScrollValue < 10) {
             //     this.$router.replace('/')
             // }

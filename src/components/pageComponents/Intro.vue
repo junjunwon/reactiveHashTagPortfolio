@@ -85,7 +85,7 @@ export default {
     },
     watch: {
         deviceSize: function() {
-            console.log(window.innerHeight)
+            // console.log(window.innerHeight)
         }
     },
     methods: {

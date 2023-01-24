@@ -13,6 +13,8 @@ export const store = new Vuex.Store({
         links: {
             resume : 'https://docs.google.com/document/d/15-CXM8VAWNMwLF29aSq1yT8glhkPSum9maEPwW4KeaI/edit'
         },
+        loading : true,
+        slideLoading : true,
         modalInfo : {
             imgName : '',
             isImg : true,
@@ -20,7 +22,7 @@ export const store = new Vuex.Store({
         },
         contentDetails: {
             'startup/xpoiled_detail.png' : {
-                content : 'Packaging Design', 
+                content : 'Package Design', 
             },
             'startup/xpoiled.png' : {
                 content : 'Word Mark Logo',
@@ -76,6 +78,12 @@ export const store = new Vuex.Store({
         },
         getShowIntroDetail : function(state) {
             return state.showIntroDetail
+        },
+        getLoading : function(state) {
+            return state.loading
+        },
+        getSlideLoading : function(state) {
+            return state.slideLoading
         }
     },
     mutations: {
@@ -92,8 +100,14 @@ export const store = new Vuex.Store({
         },
         setHashTag : function(state, payload) {
             state.hashTag = payload
-            console.log('state is ', state)
-            console.log('payload is ', payload)
+            // console.log('state is ', state)
+            // console.log('payload is ', payload)
+        },
+        setLoading : function(state, payload) {
+            state.loading = payload
+        },
+        setSlideLoading : function(state, payload) {
+            state.slideLoading = payload
         }
     },
 

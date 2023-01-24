@@ -1,21 +1,74 @@
 <template>
     <div>
         <b-modal 
-            title="BootstrapVue"
+            ref="contentModal"
             v-model="modalShow"
             hide-footer
             hide-header
             scrollable
             style="background-color:black;"
             modal-class="modal-fullscreen">
+            <b-row>
+                <div class="closeBtn" @click="hideModal">
+                    <!-- <img src="" alt=""> -->
+                    BACK 
+                </div>
+            </b-row>
             <b-row id="rowSquare" align-v="stretch">
-                <b-row>
-                <vueper-slides
+                <b-overlay  fixed no-center class="test" :show="getSlideLoading" bg-color="black" rounded="lg" opacity="0.95" style="height:750vh !important; ">
+                <template #overlay>
+                    <div class=" position-absolute" style="top:0%; left:0%;">
+                        <div>
+                            <span class="sr-only" style="top:20% !important; font-size:2em;">PLEASE WAIT FOR MY WORKS...</span>
+                        </div>
+                    </div>
+                </template>
+                <b-row style="margin-bottom:1em;">
+                    <swiper
+                            :modules="modules"
+                            :space-between="30"
+                            @swiper="onSwiper"
+                            @slideChange="onSlideChange"
+                            :keyboard="{
+                                enabled: true
+                            }"
+                            :navigation="true"
+                        >
+                        <!-- :pagination="{
+                              type: 'bullets',
+                            }" -->
+                        <swiper-slide
+                            v-for="(slide, i) in chooseSlide" :key="i"
+                            :class="{test_2: true}"
+                        >
+                            <video v-show="slide.video !== undefined" class="img-fluid w-100 mx-auto" webkit-playsinline playsinline loop autoplay muted preload="auto" >
+                                <source @load="chkAllImageLoaded" :src="slide.video" type="video/mp4" />
+                            </video>
+                            <img
+                            @load="chkAllImageLoaded"
+                            :src="slide.image"
+                            v-show="slide.video === undefined"
+                            class="img-fluid w-100 mx-auto"
+                            blank="true"
+                            />
+                        </swiper-slide>
+                        <!-- <b-col 
+                                    class="f-left pd-t-8px mg-r-10px" 
+                                    align-self="center"
+                                    v-for="(slide, i) in chooseSlide" :key="i"
+                                >
+                                    <img :src="slide.image" alt="">
+                                    <div 
+                                        class="imageBackground"
+                                        :style="{ 'background': 'url(' + slide.image + ') center / contain no-repeat', 'cursor' : 'pointer', 'width' : '400px'}"></div>
+                                </b-col> -->
+                    </swiper>
+                <!-- <vueper-slides
                     fade
                     :visible-slides="3"
                     slide-multiple
                     :bullets="false"
-                    :arrows-outside="false"
+                    :arrows-outside="true"
                     :gap="3"
                     :slide-ratio="1 / 4"
                     :breakpoints="{ 800: { visibleSlides: 2, slideMultiple: 2 } }"
@@ -24,15 +77,30 @@
                 >
                     <vueper-slide 
                             v-for="(slide, j) in chooseSlide" :key="j" :image="slide.image"
-                            :style="'background-color: ' + ['#ff5252', '#42b983'][j % 2]"
                             @click.native="test()"
                     >
                     </vueper-slide>
-                </vueper-slides>
+                </vueper-slides> -->
+                    <!-- <b-col cols="12" align-self="center">
+                        <infinite-slide-bar duration="120s" paused=true :barStyle="{ background: '#000000'}">
+                            <div class="items">
+                                <b-col 
+                                    class="f-left pd-t-8px mg-r-10px" 
+                                    align-self="center"
+                                    v-for="(slide, i) in chooseSlide" :key="i"
+                                >
+                                    <img :src="slide.image" alt="">
+                                    <div 
+                                        class="imageBackground"
+                                        :style="{ 'background': 'url(' + slide.image + ') center / contain no-repeat', 'cursor' : 'pointer', 'width' : '400px'}"></div>
+                                </b-col>
+                            </div>
+                        </infinite-slide-bar>
+                    </b-col> -->
                 </b-row>
                 <b-row>
-                    <b-col cols="2"></b-col>
-                    <b-col cols="8">
+                    <b-col cols="1"></b-col>
+                    <b-col cols="10">
                         <div style="color:white; text-align:center;">
                             <div>{{content.header}}</div>
                             <div>{{content.rate}}</div>
@@ -40,42 +108,38 @@
                             <div>{{content.detail}}</div>
                         </div>
                     </b-col>
-                    <b-col cols="2"></b-col>
+                    <b-col cols="1"></b-col>
                 </b-row>
-                <!-- <b-col id="colModal" cols="6" align-self="start">
-                    <img v-show="getModalInfo.isImg" :src="showImage" />
-                    <video v-show="!getModalInfo.isImg" webkit-playsinline playsinline loop autoplay muted preload="auto" >
-                        <source :src="showImage" type="video/mp4" />
-                    </video>
-                </b-col>
-                <b-col id="colModal" cols="6" align-self="start" 
-                    style="display:flex; align-items:center; color:white;"
-                >
-                    <b-row>
-                        {{this.$store.getters.getModalInfo.content}}
-                        <a v-bind:href="getModalInfo.link">visit to xpoiled webSite</a>
-                    </b-row>
-                </b-col> -->
+                </b-overlay>
             </b-row>
+            
         </b-modal>
         <b-modal modal-class="my-second-class">
             <template #modal-header>Header</template>
             Hello
         </b-modal>
-        <!-- <div class="modal-dialog modal-fullscreen" :v-model="modalShow">
-          ...
-        </div> -->
     </div>
 </template>
 
 <script>
-import { VueperSlides, VueperSlide } from 'vueperslides'
+// import { VueperSlides, VueperSlide } from 'vueperslides'
 import imageList from '@/json/imageList.json'
+import { Navigation, Pagination, Keyboard } from 'swiper'
+import 'swiper/';
+import { SwiperCore, Swiper, SwiperSlide } from 'swiper-vue2'
+
+// Import Swiper styles
+import 'swiper/swiper-bundle.css'
+import 'swiper/swiper-bundle.min.css'
+
+SwiperCore.use([Navigation, Pagination, Keyboard])
 
 export default {
     name : 'ContentDetail',
     components : {
-        VueperSlides, VueperSlide
+        // VueperSlides, VueperSlide,
+        Swiper,
+        SwiperSlide
     },
     props: {
         propModalShow : {
@@ -85,159 +149,22 @@ export default {
     },
     data() {
         return {
+            // swiperOptions: {
+            //     slidesPerView: 'auto',
+            //     spaceBetween: 30,
+            //     lazy: true,
+            //     preloadImages: false,
+            //     keyboard : { enabled: true },
+            //     navigation: {
+            //         nextEl: '.swiper-button-next',
+            //         prevEl: '.swiper-button-prev',
+            //     },  
+            // },
+            
+            modules: [Navigation, Pagination, Keyboard], 
             slides: [],
             imageList : imageList,
-            slidesXpoiled: [
-                {
-                    title: 'Slide #1',
-                    content: 'Slide 1 content.',
-                    image : require('../../assets/img/startup/xpoiled.png')
-                    // image : '../assets/img/startup/xpoiled.png'
-                },
-                {
-                    title: 'Slide #2',
-                    content: 'Slide 2 content.',
-                    image : require('../../assets/img/startup/xpoiled_detail.png')
-                },
-                {
-                    title: 'Slide #2',
-                    content: 'Slide 2 content.',
-                    image : require('../../assets/img/startup/xpoiled_letters.png')
-                },
-                {
-                    title: 'Slide #2',
-                    content: 'Slide 2 content.',
-                    image : require('../../assets/img/startup/xpoiled_photo.png')
-                },
-                {
-                    title: 'Slide #2',
-                    content: 'Slide 2 content.',
-                    image : require('../../assets/img/startup/xpoiled_photo2.png')
-                },
-                {
-                    title: 'Slide #2',
-                    content: 'Slide 2 content.',
-                    image : require('../../assets/img/startup/xpoiled_photo3.png')
-                },
-                {
-                    title: 'Slide #2',
-                    content: 'Slide 2 content.',
-                    image : require('../../assets/img/startup/xpoiled_photo4.png')
-                },
-                {
-                    title: 'Slide #2',
-                    content: 'Slide 2 content.',
-                    image : require('../../assets/img/startup/xpoiled_photo5.png')
-                },
-                {
-                    title: 'Slide #2',
-                    content: 'Slide 2 content.',
-                    image : require('../../assets/img/startup/xpoiled_photo6.png')
-                },
-                {
-                    title: 'Slide #2',
-                    content: 'Slide 2 content.',
-                    image : require('../../assets/img/startup/xpoiled_photo6.png')
-                },
-                {
-                    title: 'Slide #2',
-                    content: 'Slide 2 content.',
-                    image : require('../../assets/img/startup/xpoiled_photo7.png')
-                },
-                {
-                    title: 'Slide #2',
-                    content: 'Slide 2 content.',
-                    image : require('../../assets/img/startup/xpoiled_photo8.png')
-                }
-            ],
-            // slidesPinklipps: [],
-            slidesPinklippsBak: [
-                {
-                    title: 'Slide #1',
-                    content: 'Slide 1 content.',
-                    image : require('../../assets/img/pinklipps/cosmetic_detail.png')
-                },
-                {
-                    title: 'Slide #1',
-                    content: 'Slide 1 content.',
-                    image : require('../../assets/img/pinklipps/cosmetic.jpg')
-                },
-                {
-                    title: 'Slide #1',
-                    content: 'Slide 1 content.',
-                    image : require('../../assets/img/pinklipps/pinkLipps.png')
-                },
-                {
-                    title: 'Slide #1',
-                    content: 'Slide 1 content.',
-                    image : require('../../assets/img/pinklipps/pinkLipps2.png')
-                },
-                {
-                    title: 'Slide #1',
-                    content: 'Slide 1 content.',
-                    image : require('../../assets/img/pinklipps/pinkLipps3.png')
-                },
-                {
-                    title: 'Slide #1',
-                    content: 'Slide 1 content.',
-                    image : require('../../assets/img/pinklipps/pinkLipps4.png')
-                },
-                {
-                    title: 'Slide #1',
-                    content: 'Slide 1 content.',
-                    image : require('../../assets/img/pinklipps/pinkLipps5.png')
-                },
-                {
-                    title: 'Slide #1',
-                    content: 'Slide 1 content.',
-                    image : require('../../assets/img/pinklipps/pinkLipps6.png')
-                },
-                {
-                    title: 'Slide #1',
-                    content: 'Slide 1 content.',
-                    image : require('../../assets/img/pinklipps/pinkLipps7.png')
-                },
-                {
-                    title: 'Slide #1',
-                    content: 'Slide 1 content.',
-                    image : require('../../assets/img/pinklipps/pinkLipps8.png')
-                },
-                {
-                    title: 'Slide #1',
-                    content: 'Slide 1 content.',
-                    image : require('../../assets/img/pinklipps/pinkLipps9.png')
-                },
-                {
-                    title: 'Slide #1',
-                    content: 'Slide 1 content.',
-                    image : require('../../assets/img/pinklipps/pinkLipps10.png')
-                },
-                {
-                    title: 'Slide #1',
-                    content: 'Slide 1 content.',
-                    image : require('../../assets/img/pinklipps/pinkLipps11.png')
-                },
-                {
-                    title: 'Slide #1',
-                    content: 'Slide 1 content.',
-                    image : require('../../assets/img/pinklipps/pinkLipps12.png')
-                },
-                {
-                    title: 'Slide #1',
-                    content: 'Slide 1 content.',
-                    image : require('../../assets/img/pinklipps/pinkLipps13.png')
-                },
-                {
-                    title: 'Slide #1',
-                    content: 'Slide 1 content.',
-                    image : require('../../assets/img/pinklipps/pinkLipps14.png')
-                },
-                {
-                    title: 'Slide #1',
-                    content: 'Slide 1 content.',
-                    image : require('../../assets/img/pinklipps/pinkLipps15.png')
-                }
-            ],
+            allImageLoaded: 0,
             content : {},
             contentXpoiled: {
                 header : 'XPOILED / Nail Brand (My brand)',
@@ -248,6 +175,26 @@ export default {
                 header : 'Pinklipps / Makeup Brand',
                 rate : 'PARTICIPATION RATE : 100% (whole work categories)',
                 detail : 'The Pinklipps is a brand created by a professional makeup artist. It needed to beef up brand identity and create a more cohesive brand look. I strengthened the brand story in order to deliver a cohesive marketing touchpoint and brand look as well. According to recreated brand fundamentals, I created packaging, brand identity system, and art direction. As a result, Pinklipps has been approved to shop in TARGET in 2022. I’m working on the POG display for the TARGET. The Pinkllips fully renewed by me will be launched in 2022.'
+            },
+            contentLockColor: {
+                header : 'L.O.C.K Color / Makeup Brand',
+                rate : 'PARTICIPATION RATE : 100% (whole work categories)',
+                detail : 'The L.O.C.K. Color stands for Long-Lasting Original Color Keeper. This powerful brand is inspired by the fun and fearless nature hidden within us all. This limited edition New York piece is sold in Asia. The graphics have expressed NYC within its abstract drawing. The tube and box packaging have been designed by me. It has been launched in many big retailers in the Asia and Russia area. Additionally, I maintained and oversaw the brand design system and photography as well.'
+            },
+            contentUnicornGlow: {
+                header : 'UNICORN GLOW / Makeup Brand',
+                rate : 'PARTICIPATION RATE : 100% (whole work categories)',
+                detail : 'The UNICORN GLOW strives to bring out the inner unicorn in everyone. Our goal is to enhance a person’s beauty with our striking design and high-quality products. Moreover, to create a positive and thoughtful message that encourages people to be the best version of themselves, their inner unicorn. I created a brand identity system cooperating with the marketing team. Additionally, I carried out the photography, art direction, packaging design, and POG display for CVS and WALMART in the US and parts of Mexico'
+            },
+            contentTutti: {
+                header : 'TUTTI / Nail Spa Brand',
+                rate : 'PARTICIPATION RATE : 100%(Bottle Design / 5 Drafts)',
+                detail : 'As my role of this rebranding project, I’ve been responsible for product design. According to this new brand’s identity and creativity, it celebrates the Italian heritage of the word Tutti in its visual language, and embodies its timeless glamor. The bottle design got inspired by the new logo featuring a sharp edge bringing to mind a beautiful piece of jewelry object that is at once luxurious and ergonomic. The brand refresh has allowed Tutti a greater sense of belonging in the luxury mall environment. It has given the brand the edge it needs to both stand out and fit-in with other familiar brands in luxury retail (e.g., Prada, Hermes). As a result, Tutti was able to more fully penetrate the high-income market segment in the mani-pedi space. There were store expansions nationwide, particularly in the East Coast. Moreover, our custom-made nail polish bottles attracted attention wherever they were displayed in-store, notably lifting sales and further reinforcing the brand’s upscale image.'
+            },
+            contentSeventeen: {
+                header : '',
+                rate : '',
+                detail : ''
             },
             window: {
                 width: 0,
@@ -263,19 +210,29 @@ export default {
     mounted () {
     },
     computed : {
+        getSlideLoading : function() {
+            console.log('loading is ...')
+            console.log(this.$store.getters.getSlideLoading)
+            return this.$store.getters.getSlideLoading
+        },
         chooseSlide () {
             return this.test() 
         },
-        modalShow () {
-            console.log('modalshow')
-            return this.propModalShow
+        modalShow : {
+            get () {
+                // console.log('modalshow')
+                return this.propModalShow
+            },
+            set (modalShow) {
+                return modalShow
+            }
         },
         getModalInfo () {
             return this.$store.getters.getModalInfo
         },
         showImage() {
             // ../assets/img/2022voty-vertical-main-cover.mp4
-            console.log('../../assets/img/' + this.getModalInfo.imgName)
+            // console.log('../../assets/img/' + this.getModalInfo.imgName)
             return require('../../assets/img/' + this.getModalInfo.imgName);
             // // return require('../../assets/img/' + this.getModalInfo.imgName);
             // if(this.getModalInfo.isImg) {
@@ -286,19 +243,54 @@ export default {
         }
     },
     methods: {
+      onSwiper(swiper) {
+        console.log(swiper);
+      },
+      onSlideChange() {
+        console.log('slide change');
+      },
+        chkAllImageLoaded() {
+            this.allImageLoaded = this.allImageLoaded + 1
+            console.log('this.allImageLoaded ...')
+            console.log(this.allImageLoaded)
+            console.log('slides length is : ', this.slides.length)
+            if(this.allImageLoaded === this.slides.length) {
+                this.allImageLoaded = 0
+                this.$store.commit('setSlideLoading', false)
+            }
+        },
+        getImageUrl (imageId) {
+            return `https://picsum.photos/600/400/?image=${imageId}`
+        },
         test() {
-            if(this.$store.getters.getModalInfo.catagory === 'xpoiled') {
-                this.slides = this.slidesXpoiled
+            if (this.$store.getters.getModalInfo.catagory === 'xpoiled') {
+                // this.slides = this.slidesXpoiled
+                this.slides = this.imageList.xpoiled
                 this.content = this.contentXpoiled
-            } else if(this.$store.getters.getModalInfo.catagory === 'pinklipps') {
+            } else if (this.$store.getters.getModalInfo.catagory === 'pinklipps') {
                 this.slides = this.imageList.slidesPinklipps
                 this.content = this.contentPinklipps
+            } else if (this.$store.getters.getModalInfo.catagory === 'lockColor') {
+                this.slides = this.imageList.lockColor
+                this.content = this.contentLockColor
+            } else if (this.$store.getters.getModalInfo.catagory === 'unicornGlow') {
+                this.slides = this.imageList.unicornGlow
+                this.content = this.contentUnicornGlow
+            }  else if (this.$store.getters.getModalInfo.catagory === 'tutti') {
+                this.slides = this.imageList.tutti
+                this.content = this.contentTutti
+            } else if (this.$store.getters.getModalInfo.catagory === 'seventeen') {
+                this.slides = this.imageList.seventeen
+                this.content = this.contentSeventeen
             } else {
                 this.slides = []
                 this.content = {}
             }
             
             return this.slides 
+        },
+        hideModal() {
+            this.$refs['contentModal'].hide()
         },
         handleResize() {
             this.window.width = window.innerWidth;
@@ -353,45 +345,143 @@ export default {
     height: inherit;
     width: 50%;
 }
-/* .vueperslides__parallax-wrapper {
-    height: 700px;
+.closeBtn {
+    text-align: right;
+    color: white;
+    height: 70px;
+    cursor: pointer;
 }
-@media (max-width: 1400px) {
-    .vueperslides__parallax-wrapper {
-        height: 600px;
-    }
+.thumbnails {
+  margin: auto;
+  max-width: none;
 }
-@media (max-width: 1200px) {
-    .vueperslides__parallax-wrapper {
-        height: 550px;
-    }
+
+.thumbnails .vueperslide {
+  box-sizing: border-box;
+  border: 1px solid #fff;
+  transition: 0.3s ease-in-out;
+  opacity: 0.7;
+  cursor: pointer;
+  /* background-size: contain; */
+  background-repeat: no-repeat; 
+  background-position: center center;
 }
-@media (max-width: 1000px) {
-    .vueperslides__parallax-wrapper {
-        height: 500px;
-    }
+
+.thumbnails .vueperslide--active {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  opacity: 1;
+  border-color: #000;
+  /* background-size: contain; */
+  background-repeat: no-repeat; 
+  background-position: center center;
+}
+.items { 
+    width: 50%;
+    height: 600px;
+    display: flex; 
+} 
+.imageBackground {
+    height: 600px;
+    width: 600px;
 }
 @media (max-width: 800px) {
-    .vueperslides__parallax-wrapper {
-        height: 450px;
+    #row {
+        height: 500px;
+        padding-bottom: 2em;
+        margin-bottom: 100px;
+    }
+    #rowSquare {
+        height: 800px;
+        margin-bottom: 150px;
+    }
+    .items { 
+        width: 50%;
+        height: 500px;
+        display: flex; 
+    } 
+    .imageBackground {
+        height: 500px;
+        width: 500px;
     }
 }
 @media (max-width: 600px) {
-    .vueperslides__parallax-wrapper {
-        height: 400px;
+    #row {
+        height: 450px;
+        padding-bottom: 2em;
+        margin-bottom: 30px;
+    }
+    #rowSquare {
+        height: 610px;
+        margin-bottom: 0px;
+    }
+    .items { 
+        width: 50%;
+        height: 200px;
+        display: flex; 
+    } 
+    .imageBackground {
+        height: 200px;
+        width: 400px;
     }
 }
-@media (max-width: 400px) {
-    .vueperslides__parallax-wrapper {
-        height: 350px;
+@media (max-width: 500px) {
+    #row {
+        height: 300px;
+        padding-bottom: 2em;
+        margin-bottom: 30px;
+    }
+    #rowSquare {
+        height: 530px;
+        margin-bottom: 55px;
     }
 }
-@media (max-width: 300px) {
-    .vueperslides__parallax-wrapper {
+@media (max-width: 440px) {
+    #row {
         height: 250px;
+        padding-bottom: 2em;
+        margin-bottom: 30px;
     }
-} */
+    #rowSquare {
+        height: 388px;
+        margin-bottom: 55px;
+    }
+}
+@media (max-width: 440px) {
+    .items { 
+        width: 50%;
+        height: 200px;
+        display: flex; 
+    } 
+    .imageBackground {
+        height: 200px;
+        width: 200px;
+    }
+}
+.img-fluid {
+max-width: 100%;
+height: 600px !important;
+}
 
+/* .w-100 {
+  width: 100%;
+} */
+.ml-auto, .mx-auto {
+  margin-left: auto;
+}
+.mr-auto, .mx-auto {
+  margin-right: auto;
+}
+.test_2 {
+    width: auto !important;
+}
+.swiper .swiper-pagination {
+  position: absolute;
+  bottom: 65px !important;
+}
+.swiper .swiper-pagination-bullet {
+  background-color: #000;
+  margin: 0 10px !important;
+}
 </style>
 
 // https://drive.google.com/file/d/1ReQZuhfPonaRFufLQv0H6YjeMTd57uOX/view?usp=sharing

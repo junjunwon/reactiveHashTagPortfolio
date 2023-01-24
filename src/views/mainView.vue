@@ -1,10 +1,38 @@
 <template>
+    <!-- <b-overlay 
+      :show="getLoading" 
+      spinner-variant="primary"
+      spinner-type="grow"
+      spinner-small
+      rounded="sm"
+      style="height:750vh !important;"
+      aria-hidden="true"> -->
+      <b-overlay  fixed no-center class="test" :show="getLoading" bg-color="black" rounded="lg" opacity="0.95" style="height:750vh !important; ">
+        <template #overlay>
+            <div class="position-absolute" style="top:0%; left:0%;">
+                <!-- <div style="margin-bottom:2em; padding-right:1em;">
+                    <b-icon
+                        icon="stopwatch"
+                        variant="info"
+                        scale="2"
+                        shift-v="8"
+                        shift-h="8"
+                    ></b-icon>
+                </div> -->
+                <div>
+                    <span class="sr-only" style="top:20% !important; font-size:2em;">PLEASE WAIT FOR MY WORKS...</span>
+                </div>
+                <!-- We add an SR only text for screen readers -->
+                
+            </div>
+        </template>
     <div>
-        <Header></Header>
+            <Header></Header>
             <Intro></Intro>
             <HashList style="padding-bottom: 2%;"></HashList>
             <IntroDetail></IntroDetail>
             <Content style="height: 250vh;"></Content>
+        
         <!-- <div class="introHeader">
             <Header></Header>
             <Intro></Intro>
@@ -17,6 +45,7 @@
         </div> -->
         
     </div>
+    </b-overlay>
 </template>
 <script>
 
@@ -37,12 +66,19 @@ export default {
     },
     data() {
         return {
-            
+            // loading : this.$store.getters.getLoading
         }
     },
     created() {
 
     },
+    computed: {
+        getLoading : function() {
+            console.log('loading is ...')
+            console.log(this.$store.getters.getLoading)
+            return this.$store.getters.getLoading
+        }
+    }
 }
 </script>
 <style>
@@ -69,5 +105,8 @@ export default {
 .contentBody div {
   /* border:solid 1px black;  */
   /* display:inline-block; */
+}
+.position-absolute {
+    background-color: black I !important;
 }
 </style>

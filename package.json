@@ -12,6 +12,8 @@
     "bootstrap": "^5.2.3",
     "bootstrap-vue": "^2.23.1",
     "core-js": "^3.8.3",
+    "swiper": "^6.8.4",
+    "swiper-vue2": "^1.0.10",
     "v-lazy-image": "^2.1.1",
     "vue": "^2.7.14",
     "vue-bs-modal": "^0.7.9",
