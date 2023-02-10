@@ -20,7 +20,7 @@
                     ></b-icon>
                 </div> -->
                 <div>
-                    <span class="sr-only" style="top:20% !important; font-size:2em;">PLEASE WAIT FOR MY WORKS...</span>
+                    <span class="sr-only" style="top:20% !important; font-size:2em;">PLEASE WAIT A MOMENT...</span>
                 </div>
                 <!-- We add an SR only text for screen readers -->
                 

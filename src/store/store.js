@@ -14,7 +14,7 @@ export const store = new Vuex.Store({
             resume : 'https://docs.google.com/document/d/15-CXM8VAWNMwLF29aSq1yT8glhkPSum9maEPwW4KeaI/edit'
         },
         loading : true,
-        slideLoading : true,
+        slideLoading : false,
         modalInfo : {
             imgName : '',
             isImg : true,

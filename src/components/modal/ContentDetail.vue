@@ -19,7 +19,7 @@
                 <template #overlay>
                     <div class=" position-absolute" style="top:0%; left:0%;">
                         <div>
-                            <span class="sr-only" style="top:20% !important; font-size:2em;">PLEASE WAIT FOR MY WORKS...</span>
+                            <span class="sr-only" style="top:20% !important; font-size:2em;">PLEASE WAIT A MOMENT...</span>
                         </div>
                     </div>
                 </template>
@@ -42,7 +42,7 @@
                             :class="{test_2: true}"
                         >
                             <video v-show="slide.video !== undefined" class="img-fluid w-100 mx-auto" webkit-playsinline playsinline loop autoplay muted preload="auto" >
-                                <source @load="chkAllImageLoaded" :src="slide.video" type="video/mp4" />
+                                <source :src="slide.video" type="video/mp4" />
                             </video>
                             <img
                             @load="chkAllImageLoaded"
@@ -149,18 +149,6 @@ export default {
     },
     data() {
         return {
-            // swiperOptions: {
-            //     slidesPerView: 'auto',
-            //     spaceBetween: 30,
-            //     lazy: true,
-            //     preloadImages: false,
-            //     keyboard : { enabled: true },
-            //     navigation: {
-            //         nextEl: '.swiper-button-next',
-            //         prevEl: '.swiper-button-prev',
-            //     },  
-            // },
-            
             modules: [Navigation, Pagination, Keyboard], 
             slides: [],
             imageList : imageList,
@@ -192,6 +180,42 @@ export default {
                 detail : 'As my role of this rebranding project, I’ve been responsible for product design. According to this new brand’s identity and creativity, it celebrates the Italian heritage of the word Tutti in its visual language, and embodies its timeless glamor. The bottle design got inspired by the new logo featuring a sharp edge bringing to mind a beautiful piece of jewelry object that is at once luxurious and ergonomic. The brand refresh has allowed Tutti a greater sense of belonging in the luxury mall environment. It has given the brand the edge it needs to both stand out and fit-in with other familiar brands in luxury retail (e.g., Prada, Hermes). As a result, Tutti was able to more fully penetrate the high-income market segment in the mani-pedi space. There were store expansions nationwide, particularly in the East Coast. Moreover, our custom-made nail polish bottles attracted attention wherever they were displayed in-store, notably lifting sales and further reinforcing the brand’s upscale image.'
             },
             contentSeventeen: {
+                header : '',
+                rate : '',
+                detail : ''
+            },
+            contentVoty2022: {
+                header : 'Seventeen’s 2022 Voices of the Year Oversaw all visuals and motion graphic creation',
+                rate : 'The whole package here : https://www.seventeen.com/life/a42156748/voices-of-the-year-2022/',
+                detail : 'Seventeen’s 2022 Voices of the Year, headlined by JoJo Siwa and featuring eight other young people who used their voices to change the world this year, from climate change activist and spoken word poet Aniya Butler to abortion rights activist Olivia Julianna. These nine young people are working today to save tomorrow and we are incredibly honored to recognize them as our 2022 Voices of the Year. Each winner is featured on site in an in-depth interview, on their very own Seventeen digital cover, and in a video they have created for Seventeen’s TikTok and Instagram feeds as well as their own individual YouTube Shorts, where they break down their advocacy work and impart their advice for young activists nationwide.'
+            },
+            contentVoy2021: {
+                header : 'Seventeen’s 2021 Voices of the Year Oversaw all visuals and motion graphic creation',
+                rate : 'The whole package here : https://www.seventeen.com/life/a38411652/2021-voices-of-the-year/',
+                detail : 'Seventeen’s 2022 Voices of the Year, featuring nine young people who used their voices to change the world this year, These nine young people are working today to save tomorrow and we are incredibly honored to recognize them as our 2021 Voices of the Year. Each winner is featured on site in an in-depth interview, on their very own Seventeen digital cover, and in a video they have created for Seventeen’s TikTok and Instagram feeds as well as their own individual YouTube Shorts, where they break down their advocacy work and impart their advice for young activists nationwide.'
+            },
+            contentDmz: {
+                header : 'Haemaroo Village in DMZ',
+                rate : 'Illustrations of Place Branding',
+                detail : 'Have been working on illustrations for various projects. Illustration work on the theme of seniors in Haemaruchon Village in DMZ.' +
+'Illustration expressing the story of environmental protection needed for promotional materials of the Environment Corporation in Korea as worked on diverse illustrations. To be more specific, The Haemaruchon project was to alter its images, only focusing on ‘DMZ’-dangerous and boring due to the highest-aged populations to express an existing youth and liveliness through their dreams even though residents have been continuously older. Thus, I sought to convey to the young generation that even seniors are able to young regardless of age, as long as they bear dreams and aim in a heartful mind. I tried to actualize their stories into the illustrations'
+            },
+            contentArtipst: {
+                header : '',
+                rate : '',
+                detail : ''
+            },
+            contentIllustrationCooing: {
+                header : '',
+                rate : '',
+                detail : ''
+            },
+            c: {
+                header : '',
+                rate : '',
+                detail : ''
+            },
+            d: {
                 header : '',
                 rate : '',
                 detail : ''
@@ -250,14 +274,15 @@ export default {
         console.log('slide change');
       },
         chkAllImageLoaded() {
-            this.allImageLoaded = this.allImageLoaded + 1
-            console.log('this.allImageLoaded ...')
-            console.log(this.allImageLoaded)
-            console.log('slides length is : ', this.slides.length)
-            if(this.allImageLoaded === this.slides.length) {
-                this.allImageLoaded = 0
-                this.$store.commit('setSlideLoading', false)
-            }
+            // this.allImageLoaded = this.allImageLoaded + 1
+            // console.log('this.allImageLoaded ...')
+            // console.log(this.allImageLoaded)
+            // console.log('slides length is : ', this.slides.length)
+            // if(this.allImageLoaded > this.slides.length-2) {
+            //     this.allImageLoaded = 0
+            //     this.$store.commit('setSlideLoading', false)
+            // }
+            // this.$store.commit('setSlideLoading', false)
         },
         getImageUrl (imageId) {
             return `https://picsum.photos/600/400/?image=${imageId}`
@@ -282,7 +307,23 @@ export default {
             } else if (this.$store.getters.getModalInfo.catagory === 'seventeen') {
                 this.slides = this.imageList.seventeen
                 this.content = this.contentSeventeen
-            } else {
+            } else if (this.$store.getters.getModalInfo.catagory === 'voy2021') {
+                this.slides = this.imageList.voy2021
+                this.content = this.contentVoy2021
+            } else if (this.$store.getters.getModalInfo.catagory === 'voty2022') {
+                this.slides = this.imageList.voty2022
+                this.content = this.contentVoty2022
+            } else if (this.$store.getters.getModalInfo.catagory === 'dmz') {
+                this.slides = this.imageList.dmz
+                this.content = this.contentDmz
+            } else if (this.$store.getters.getModalInfo.catagory === 'artipst') {
+                this.slides = this.imageList.artipst
+                this.content = this.contentArtipst
+            } else if (this.$store.getters.getModalInfo.catagory === 'illustrationCooing') {
+                this.slides = this.imageList.illustrationCooing
+                this.content = this.contentIllustrationCooing
+            }
+            else {
                 this.slides = []
                 this.content = {}
             }
@@ -458,7 +499,7 @@ export default {
     }
 }
 .img-fluid {
-max-width: 100%;
+max-width: 100% !important;
 height: 600px !important;
 }
 
