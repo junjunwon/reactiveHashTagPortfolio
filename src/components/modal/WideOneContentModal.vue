@@ -8,7 +8,7 @@
             scrollable
             style="background-color:black; z-index:888;"
             modal-class="modal-fullscreen">
-                <video @click="hideModal" v-show="getModalInfo.isImg === false" class="img-fluid w-100 mx-auto" webkit-playsinline playsinline loop autoplay muted preload="auto" >
+                <video @click="hideModal" v-show="getModalInfo.isImg === false" webkit-playsinline playsinline loop autoplay muted preload="auto" >
                     <source :src="getModalInfo.imgSrc" type="video/mp4" />
                 </video>
                 <img
@@ -43,6 +43,8 @@ export default {
             }
         },
         getModalInfo () {
+            console.log('getModalInfo!!!!!!!!!!!')
+            console.log(this.$store.getters.getWidePictureModalInfo.imgSrc)
             return this.$store.getters.getWidePictureModalInfo
         },
     },

@@ -41,11 +41,11 @@
                             v-for="(slide, i) in chooseSlide" :key="i"
                             :class="{test_2: true}"
                         >
-                            <video @click="clickImgtoModal($event)" v-show="slide.video !== undefined" class="img-fluid w-100 mx-auto" webkit-playsinline playsinline loop autoplay muted preload="auto" >
+                            <video @click="clickImgtoModal($event, false)" v-show="slide.video !== undefined" class="img-fluid w-100 mx-auto" webkit-playsinline playsinline loop autoplay muted preload="auto" >
                                 <source :src="slide.video" type="video/mp4" />
                             </video>
                             <img
-                            @click="clickImgtoModal($event)"
+                            @click="clickImgtoModal($event, true)"
                             loading="lazy"
                             @load="chkAllImageLoaded"
                             :src="slide.image"
@@ -119,7 +119,6 @@ export default {
             allImageLoaded: 0,
             //big one picture modal
             widePictureModalShow: false,
-            isImg : true,
             content : {},
             contentXpoiled: {
                 header : 'XPOILED / Nail Brand (My brand)',
@@ -324,20 +323,11 @@ export default {
             }
             return newHeight
         },
-        clickImgtoModal(event) {
-            debugger;
+        clickImgtoModal(event, isImg) {
             this.widePictureModalShow = !this.widePictureModalShow
-            if (event.currentTarget.id.includes('mp4')) {
-                this.isImg = false
-            } else {
-                this.isImg = true
-            }
-            // console.log('click id is')
-            // console.log(event.currentTarget.id.split(' ')[1])
-            // this.$store.commit('setSlideLoading', true)
             this.$store.commit('setWidePictureModalInfo', {
-                imgSrc : event.currentTarget.src, 
-                isImg : this.isImg
+                imgSrc : isImg === true ? event.currentTarget.src : event.currentTarget.currentSrc, 
+                isImg : isImg
             })
         },
     }

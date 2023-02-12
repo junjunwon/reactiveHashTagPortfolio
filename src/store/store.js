@@ -76,6 +76,7 @@ export const store = new Vuex.Store({
             return state.modalInfo
         },
         getWidePictureModalInfo: function(state) {
+            debugger
             return state.widePictureModalInfo
         },
         getActiveButton: function(state) {
