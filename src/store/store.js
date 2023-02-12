@@ -76,7 +76,6 @@ export const store = new Vuex.Store({
             return state.modalInfo
         },
         getWidePictureModalInfo: function(state) {
-            debugger
             return state.widePictureModalInfo
         },
         getActiveButton: function(state) {
@@ -102,7 +101,6 @@ export const store = new Vuex.Store({
             state.modalInfo.catagory = catagory
         },
         setWidePictureModalInfo: function(state, {imgSrc, isImg}) {
-            debugger
             state.widePictureModalInfo.imgSrc = imgSrc,
             state.widePictureModalInfo.isImg = isImg
         },

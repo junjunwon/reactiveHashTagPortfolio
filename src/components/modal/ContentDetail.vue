@@ -56,7 +56,7 @@
                         </swiper-slide>
                     </swiper>
                 </b-row>
-                <b-row>
+                <b-row @click="hideModal">
                     <b-col cols="3"></b-col>
                     <b-col cols="6">
                         <div style="color:white; text-align:center;">
@@ -67,6 +67,7 @@
                             <div>{{content.detail}}</div>
                             <br />
                             <div>{{content.detail2}}</div>
+                            <div>{{content.detail3}}</div>
                         </div>
                     </b-col>
                     <b-col cols="3"></b-col>
@@ -129,22 +130,27 @@ export default {
             contentPinklipps: {
                 header : 'Pinklipps / Makeup Brand',
                 rate : 'PARTICIPATION RATE : 100% (whole work categories)',
-                detail : 'The Pinklipps is a brand created by a professional makeup artist. It needed to beef up brand identity and create a more cohesive brand look. I strengthened the brand story in order to deliver a cohesive marketing touchpoint and brand look as well. According to recreated brand fundamentals, I created packaging, brand identity system, and art direction. As a result, Pinklipps has been approved to shop in TARGET in 2022. I’m working on the POG display for the TARGET. The Pinkllips fully renewed by me will be launched in 2022.'
+                detail : 'The Pinklipps is a brand created by a professional makeup artist. It needed to beef up brand identity and create a more cohesive brand look. I strengthened the brand story in order to deliver a cohesive marketing touchpoint and brand look as well.',
+                detail2 : 'According to recreated brand fundamentals, I created packaging, brand identity system, and art direction. As a result, Pinklipps has been approved to shop in TARGET in 2022. I’m working on the POG display for the TARGET. The Pinkllips fully renewed by me will be launched in 2022.'
             },
             contentLockColor: {
                 header : 'L.O.C.K Color / Makeup Brand',
                 rate : 'PARTICIPATION RATE : 100% (whole work categories)',
-                detail : 'The L.O.C.K. Color stands for Long-Lasting Original Color Keeper. This powerful brand is inspired by the fun and fearless nature hidden within us all. This limited edition New York piece is sold in Asia. The graphics have expressed NYC within its abstract drawing. The tube and box packaging have been designed by me. It has been launched in many big retailers in the Asia and Russia area. Additionally, I maintained and oversaw the brand design system and photography as well.'
+                detail : 'The L.O.C.K. Color stands for Long-Lasting Original Color Keeper. This powerful brand is inspired by the fun and fearless nature hidden within us all. This limited edition New York piece is sold in Asia. The graphics have expressed NYC within its abstract drawing.',
+                detail2 : 'The tube and box packaging have been designed by me. It has been launched in many big retailers in the Asia and Russia area. Additionally, I maintained and oversaw the brand design system and photography as well.'
+
             },
             contentUnicornGlow: {
                 header : 'UNICORN GLOW / Makeup Brand',
                 rate : 'PARTICIPATION RATE : 100% (whole work categories)',
-                detail : 'The UNICORN GLOW strives to bring out the inner unicorn in everyone. Our goal is to enhance a person’s beauty with our striking design and high-quality products. Moreover, to create a positive and thoughtful message that encourages people to be the best version of themselves, their inner unicorn. I created a brand identity system cooperating with the marketing team. Additionally, I carried out the photography, art direction, packaging design, and POG display for CVS and WALMART in the US and parts of Mexico'
+                detail : 'The UNICORN GLOW strives to bring out the inner unicorn in everyone. Our goal is to enhance a person’s beauty with our striking design and high-quality products. Moreover, to create a positive and thoughtful message that encourages people to be the best version of themselves, their inner unicorn.',
+                detail2 : 'I created a brand identity system cooperating with the marketing team. Additionally, I carried out the photography, art direction, packaging design, and POG display for CVS and WALMART in the US and parts of Mexico'
             },
             contentTutti: {
                 header : 'TUTTI / Nail Spa Brand',
                 rate : 'PARTICIPATION RATE : 100%(Bottle Design / 5 Drafts)',
-                detail : 'As my role of this rebranding project, I’ve been responsible for product design. According to this new brand’s identity and creativity, it celebrates the Italian heritage of the word Tutti in its visual language, and embodies its timeless glamor. The bottle design got inspired by the new logo featuring a sharp edge bringing to mind a beautiful piece of jewelry object that is at once luxurious and ergonomic. The brand refresh has allowed Tutti a greater sense of belonging in the luxury mall environment. It has given the brand the edge it needs to both stand out and fit-in with other familiar brands in luxury retail (e.g., Prada, Hermes). As a result, Tutti was able to more fully penetrate the high-income market segment in the mani-pedi space. There were store expansions nationwide, particularly in the East Coast. Moreover, our custom-made nail polish bottles attracted attention wherever they were displayed in-store, notably lifting sales and further reinforcing the brand’s upscale image.'
+                detail : 'As my role of this rebranding project, I’ve been responsible for product design. According to this new brand’s identity and creativity, it celebrates the Italian heritage of the word Tutti in its visual language, and embodies its timeless glamor. The bottle design got inspired by the new logo featuring a sharp edge bringing to mind a beautiful piece of jewelry object that is at once luxurious and ergonomic. The brand refresh has allowed Tutti a greater sense of belonging in the luxury mall environment. It has given the brand the edge it needs to both stand out and fit-in with other familiar brands in luxury retail (e.g., Prada, Hermes).',
+                detail2 : 'As a result, Tutti was able to more fully penetrate the high-income market segment in the mani-pedi space. There were store expansions nationwide, particularly in the East Coast. Moreover, our custom-made nail polish bottles attracted attention wherever they were displayed in-store, notably lifting sales and further reinforcing the brand’s upscale image.'
             },
             contentSeventeen: {
                 header : '',
@@ -170,7 +176,8 @@ export default {
                 header : 'Haemaroo Village in DMZ',
                 rate : 'Illustrations of Place Branding',
                 detail : 'Have been working on illustrations for various projects. Illustration work on the theme of seniors in Haemaruchon Village in DMZ.',
-                detail2 : 'Illustration expressing the story of environmental protection needed for promotional materials of the Environment Corporation in Korea as worked on diverse illustrations. To be more specific, The Haemaruchon project was to alter its images, only focusing on ‘DMZ’-dangerous and boring due to the highest-aged populations to express an existing youth and liveliness through their dreams even though residents have been continuously older. Thus, I sought to convey to the young generation that even seniors are able to young regardless of age, as long as they bear dreams and aim in a heartful mind. I tried to actualize their stories into the illustrations'
+                detail2 : 'Illustration expressing the story of environmental protection needed for promotional materials of the Environment Corporation in Korea as worked on diverse illustrations. To be more specific, The Haemaruchon project was to alter its images, only focusing on ‘DMZ’-dangerous and boring due to the highest-aged populations to express an existing youth and liveliness through their dreams even though residents have been continuously older.',
+                detail3 : 'Thus, I sought to convey to the young generation that even seniors are able to young regardless of age, as long as they bear dreams and aim in a heartful mind. I tried to actualize their stories into the illustrations'
             },
             contentArtipst: {
                 header : '',
