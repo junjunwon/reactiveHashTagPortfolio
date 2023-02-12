@@ -20,6 +20,11 @@ export const store = new Vuex.Store({
             isImg : true,
             catagory :''
         },
+        widePictureModalInfo : {
+            imgName : '',
+            isImg : true,
+            catagory :''
+        },
         contentDetails: {
             'startup/xpoiled_detail.png' : {
                 content : 'Package Design', 
@@ -70,6 +75,9 @@ export const store = new Vuex.Store({
         getModalInfo: function(state) {
             return state.modalInfo
         },
+        getWidePictureModalInfo: function(state) {
+            return state.widePictureModalInfo
+        },
         getActiveButton: function(state) {
             return state.activeButton
         },
@@ -91,6 +99,11 @@ export const store = new Vuex.Store({
             state.modalInfo.imgName = imgName,
             state.modalInfo.isImg = isImg,
             state.modalInfo.catagory = catagory
+        },
+        setWidePictureModalInfo: function(state, {imgSrc, isImg}) {
+            debugger
+            state.widePictureModalInfo.imgSrc = imgSrc,
+            state.widePictureModalInfo.isImg = isImg
         },
         setActiveButton: function(state, payload) {
             state.activeButton = payload

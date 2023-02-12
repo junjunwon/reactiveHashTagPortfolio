@@ -1,5 +1,6 @@
 <template>
     <div>
+        <WideOneContentModal :propModalShow="widePictureModalShow"></WideOneContentModal>
         <b-modal 
             ref="contentModal"
             v-model="modalShow"
@@ -10,7 +11,6 @@
             modal-class="modal-fullscreen">
             <b-row>
                 <div class="closeBtn" @click="hideModal">
-                    <!-- <img src="" alt=""> -->
                     BACK 
                 </div>
             </b-row>
@@ -23,28 +23,30 @@
                         </div>
                     </div>
                 </template>
-                <b-row style="margin-bottom:1em;">
+                <b-row style="margin-bottom:2em;">
                     <swiper
                             :modules="modules"
                             :space-between="30"
                             @swiper="onSwiper"
+                            :observer= "true"
+                            :observeParents= "true"
+                            :lazy="true"
                             @slideChange="onSlideChange"
                             :keyboard="{
                                 enabled: true
                             }"
                             :navigation="true"
                         >
-                        <!-- :pagination="{
-                              type: 'bullets',
-                            }" -->
                         <swiper-slide
                             v-for="(slide, i) in chooseSlide" :key="i"
                             :class="{test_2: true}"
                         >
-                            <video v-show="slide.video !== undefined" class="img-fluid w-100 mx-auto" webkit-playsinline playsinline loop autoplay muted preload="auto" >
+                            <video @click="clickImgtoModal($event)" v-show="slide.video !== undefined" class="img-fluid w-100 mx-auto" webkit-playsinline playsinline loop autoplay muted preload="auto" >
                                 <source :src="slide.video" type="video/mp4" />
                             </video>
                             <img
+                            @click="clickImgtoModal($event)"
+                            loading="lazy"
                             @load="chkAllImageLoaded"
                             :src="slide.image"
                             v-show="slide.video === undefined"
@@ -52,63 +54,22 @@
                             blank="true"
                             />
                         </swiper-slide>
-                        <!-- <b-col 
-                                    class="f-left pd-t-8px mg-r-10px" 
-                                    align-self="center"
-                                    v-for="(slide, i) in chooseSlide" :key="i"
-                                >
-                                    <img :src="slide.image" alt="">
-                                    <div 
-                                        class="imageBackground"
-                                        :style="{ 'background': 'url(' + slide.image + ') center / contain no-repeat', 'cursor' : 'pointer', 'width' : '400px'}"></div>
-                                </b-col> -->
                     </swiper>
-                <!-- <vueper-slides
-                    fade
-                    :visible-slides="3"
-                    slide-multiple
-                    :bullets="false"
-                    :arrows-outside="true"
-                    :gap="3"
-                    :slide-ratio="1 / 4"
-                    :breakpoints="{ 800: { visibleSlides: 2, slideMultiple: 2 } }"
-                    :style="'align-self: center;'"
-                    :fixed-height="setSliderHeight()"
-                >
-                    <vueper-slide 
-                            v-for="(slide, j) in chooseSlide" :key="j" :image="slide.image"
-                            @click.native="test()"
-                    >
-                    </vueper-slide>
-                </vueper-slides> -->
-                    <!-- <b-col cols="12" align-self="center">
-                        <infinite-slide-bar duration="120s" paused=true :barStyle="{ background: '#000000'}">
-                            <div class="items">
-                                <b-col 
-                                    class="f-left pd-t-8px mg-r-10px" 
-                                    align-self="center"
-                                    v-for="(slide, i) in chooseSlide" :key="i"
-                                >
-                                    <img :src="slide.image" alt="">
-                                    <div 
-                                        class="imageBackground"
-                                        :style="{ 'background': 'url(' + slide.image + ') center / contain no-repeat', 'cursor' : 'pointer', 'width' : '400px'}"></div>
-                                </b-col>
-                            </div>
-                        </infinite-slide-bar>
-                    </b-col> -->
                 </b-row>
                 <b-row>
-                    <b-col cols="1"></b-col>
-                    <b-col cols="10">
+                    <b-col cols="3"></b-col>
+                    <b-col cols="6">
                         <div style="color:white; text-align:center;">
-                            <div>{{content.header}}</div>
-                            <div>{{content.rate}}</div>
+                            <div style="font-size:x-large;">{{content.header}}</div>
+                            <div style="font-size:x-large;">{{content.header2}}</div>
+                            <div><a style="font-style:italic; color:white; font-size: large;" :href="content.link">{{content.rate}}</a></div>
                             <br />
                             <div>{{content.detail}}</div>
+                            <br />
+                            <div>{{content.detail2}}</div>
                         </div>
                     </b-col>
-                    <b-col cols="1"></b-col>
+                    <b-col cols="3"></b-col>
                 </b-row>
                 </b-overlay>
             </b-row>
@@ -123,8 +84,9 @@
 
 <script>
 // import { VueperSlides, VueperSlide } from 'vueperslides'
+import WideOneContentModal from '@/components/modal/WideOneContentModal.vue'
 import imageList from '@/json/imageList.json'
-import { Navigation, Pagination, Keyboard } from 'swiper'
+import { Lazy, Navigation, Pagination, Keyboard } from 'swiper'
 import 'swiper/';
 import { SwiperCore, Swiper, SwiperSlide } from 'swiper-vue2'
 
@@ -132,14 +94,16 @@ import { SwiperCore, Swiper, SwiperSlide } from 'swiper-vue2'
 import 'swiper/swiper-bundle.css'
 import 'swiper/swiper-bundle.min.css'
 
-SwiperCore.use([Navigation, Pagination, Keyboard])
+SwiperCore.use([Lazy, Navigation, Pagination, Keyboard])
 
 export default {
     name : 'ContentDetail',
     components : {
         // VueperSlides, VueperSlide,
         Swiper,
-        SwiperSlide
+        SwiperSlide,
+        //big one picture modal
+        WideOneContentModal,
     },
     props: {
         propModalShow : {
@@ -149,15 +113,19 @@ export default {
     },
     data() {
         return {
-            modules: [Navigation, Pagination, Keyboard], 
+            modules: [Lazy, Navigation, Pagination, Keyboard], 
             slides: [],
             imageList : imageList,
             allImageLoaded: 0,
+            //big one picture modal
+            widePictureModalShow: false,
+            isImg : true,
             content : {},
             contentXpoiled: {
                 header : 'XPOILED / Nail Brand (My brand)',
                 rate : 'PARTICIPATION RATE : 100% (whole work categories)',
-                detail : 'Xpoiled is my own brand started in 2021 that I have been working whole resposiblities beyond design duties. The brand name is named combining Spoiled + X (genderless, unlimited) which emphasizes the function of a fashion accessory for everyone who is genderless. It targets competitive brand image to be able to get the upper hand among existing big nail brands that are only for the women preference. This nail product category has been extended not only press-on nail for women but also nail tattoo stickers for men. The brand look has been inspired by Brooklyn street style. It has conveyed the Brooklyn street art vibe throughout the package, website, and all of its brand design assets, which will be liked by everyone who is into street culture.'
+                detail : 'Xpoiled is my own brand started in 2021 that I have been working whole resposiblities beyond design duties. The brand name is named combining Spoiled + X (genderless, unlimited) which emphasizes the function of a fashion accessory for everyone who is genderless.',
+                detail2 : 'It targets competitive brand image to be able to get the upper hand among existing big nail brands that are only for the women preference. This nail product category has been extended not only press-on nail for women but also nail tattoo stickers for men. The brand look has been inspired by Brooklyn street style. It has conveyed the Brooklyn street art vibe throughout the package, website, and all of its brand design assets, which will be liked by everyone who is into street culture.'
             },
             contentPinklipps: {
                 header : 'Pinklipps / Makeup Brand',
@@ -185,20 +153,25 @@ export default {
                 detail : ''
             },
             contentVoty2022: {
-                header : 'Seventeen’s 2022 Voices of the Year Oversaw all visuals and motion graphic creation',
-                rate : 'The whole package here : https://www.seventeen.com/life/a42156748/voices-of-the-year-2022/',
-                detail : 'Seventeen’s 2022 Voices of the Year, headlined by JoJo Siwa and featuring eight other young people who used their voices to change the world this year, from climate change activist and spoken word poet Aniya Butler to abortion rights activist Olivia Julianna. These nine young people are working today to save tomorrow and we are incredibly honored to recognize them as our 2022 Voices of the Year. Each winner is featured on site in an in-depth interview, on their very own Seventeen digital cover, and in a video they have created for Seventeen’s TikTok and Instagram feeds as well as their own individual YouTube Shorts, where they break down their advocacy work and impart their advice for young activists nationwide.'
+                header : 'Seventeen’s 2022 Voices of the Year',
+                header2 : 'Oversaw all visuals and motion graphic creation',
+                rate : 'The whole package here',
+                link : 'https://www.seventeen.com/life/a42156748/voices-of-the-year-2022/',
+                detail : 'Seventeen’s 2022 Voices of the Year, headlined by JoJo Siwa and featuring eight other young people who used their voices to change the world this year, from climate change activist and spoken word poet Aniya Butler to abortion rights activist Olivia Julianna. These nine young people are working today to save tomorrow and we are incredibly honored to recognize them as our 2022 Voices of the Year.',
+                detail2 : 'Each winner is featured on site in an in-depth interview, on their very own Seventeen digital cover, and in a video they have created for Seventeen’s TikTok and Instagram feeds as well as their own individual YouTube Shorts, where they break down their advocacy work and impart their advice for young activists nationwide.'
             },
             contentVoy2021: {
                 header : 'Seventeen’s 2021 Voices of the Year Oversaw all visuals and motion graphic creation',
-                rate : 'The whole package here : https://www.seventeen.com/life/a38411652/2021-voices-of-the-year/',
-                detail : 'Seventeen’s 2022 Voices of the Year, featuring nine young people who used their voices to change the world this year, These nine young people are working today to save tomorrow and we are incredibly honored to recognize them as our 2021 Voices of the Year. Each winner is featured on site in an in-depth interview, on their very own Seventeen digital cover, and in a video they have created for Seventeen’s TikTok and Instagram feeds as well as their own individual YouTube Shorts, where they break down their advocacy work and impart their advice for young activists nationwide.'
+                rate : 'The whole package here',
+                link : 'https://www.seventeen.com/life/a38411652/2021-voices-of-the-year/',
+                detail : 'Seventeen’s 2022 Voices of the Year, featuring nine young people who used their voices to change the world this year, These nine young people are working today to save tomorrow and we are incredibly honored to recognize them as our 2021 Voices of the Year.',
+                detail2 : 'Each winner is featured on site in an in-depth interview, on their very own Seventeen digital cover, and in a video they have created for Seventeen’s TikTok and Instagram feeds as well as their own individual YouTube Shorts, where they break down their advocacy work and impart their advice for young activists nationwide.'
             },
             contentDmz: {
                 header : 'Haemaroo Village in DMZ',
                 rate : 'Illustrations of Place Branding',
-                detail : 'Have been working on illustrations for various projects. Illustration work on the theme of seniors in Haemaruchon Village in DMZ.' +
-'Illustration expressing the story of environmental protection needed for promotional materials of the Environment Corporation in Korea as worked on diverse illustrations. To be more specific, The Haemaruchon project was to alter its images, only focusing on ‘DMZ’-dangerous and boring due to the highest-aged populations to express an existing youth and liveliness through their dreams even though residents have been continuously older. Thus, I sought to convey to the young generation that even seniors are able to young regardless of age, as long as they bear dreams and aim in a heartful mind. I tried to actualize their stories into the illustrations'
+                detail : 'Have been working on illustrations for various projects. Illustration work on the theme of seniors in Haemaruchon Village in DMZ.',
+                detail2 : 'Illustration expressing the story of environmental protection needed for promotional materials of the Environment Corporation in Korea as worked on diverse illustrations. To be more specific, The Haemaruchon project was to alter its images, only focusing on ‘DMZ’-dangerous and boring due to the highest-aged populations to express an existing youth and liveliness through their dreams even though residents have been continuously older. Thus, I sought to convey to the young generation that even seniors are able to young regardless of age, as long as they bear dreams and aim in a heartful mind. I tried to actualize their stories into the illustrations'
             },
             contentArtipst: {
                 header : '',
@@ -233,6 +206,11 @@ export default {
     },
     mounted () {
     },
+    watch : {
+        watchIndex(index) {
+            console.log('index is ', index)
+        }
+    },
     computed : {
         getSlideLoading : function() {
             console.log('loading is ...')
@@ -255,15 +233,7 @@ export default {
             return this.$store.getters.getModalInfo
         },
         showImage() {
-            // ../assets/img/2022voty-vertical-main-cover.mp4
-            // console.log('../../assets/img/' + this.getModalInfo.imgName)
             return require('../../assets/img/' + this.getModalInfo.imgName);
-            // // return require('../../assets/img/' + this.getModalInfo.imgName);
-            // if(this.getModalInfo.isImg) {
-            //     return require('../../assets/img/' + this.getModalInfo.imgName);
-            // } else {
-            //     return require('../../assets/img/' + this.getModalInfo.imgName);
-            // }
         }
     },
     methods: {
@@ -339,9 +309,6 @@ export default {
         },
         setSliderHeight() {
             let newHeight = '700px'
-            // if ( 1200 < this.window.width && this.window.width <= 1400 ) {
-            //      newHeight = '600px' // calculate a height here later
-            // } else 
             if ( 1000 < this.window.width && this.window.width <= 1200 ) {
                 newHeight = '500px'
             } else if ( 800 < this.window.width && this.window.width <= 1000 ) {
@@ -356,7 +323,23 @@ export default {
                 newHeight = '200px'
             }
             return newHeight
-        }
+        },
+        clickImgtoModal(event) {
+            debugger;
+            this.widePictureModalShow = !this.widePictureModalShow
+            if (event.currentTarget.id.includes('mp4')) {
+                this.isImg = false
+            } else {
+                this.isImg = true
+            }
+            // console.log('click id is')
+            // console.log(event.currentTarget.id.split(' ')[1])
+            // this.$store.commit('setSlideLoading', true)
+            this.$store.commit('setWidePictureModalInfo', {
+                imgSrc : event.currentTarget.src, 
+                isImg : this.isImg
+            })
+        },
     }
 
 }
@@ -523,6 +506,7 @@ height: 600px !important;
   background-color: #000;
   margin: 0 10px !important;
 }
+.swiper-button-next, .swiper-button-prev {
+    color: white;
+}
 </style>
-
-// https://drive.google.com/file/d/1ReQZuhfPonaRFufLQv0H6YjeMTd57uOX/view?usp=sharing
