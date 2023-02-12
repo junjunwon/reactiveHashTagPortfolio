@@ -62,7 +62,7 @@
                         <div style="color:white; text-align:center;">
                             <div style="font-size:x-large;">{{content.header}}</div>
                             <div style="font-size:x-large;">{{content.header2}}</div>
-                            <div><a style="font-style:italic; color:white; font-size: large;" :href="content.link">{{content.rate}}</a></div>
+                            <div><a style="font-style:italic; color:white; font-size: large;" :href="content.link" target='_blank'>{{content.rate}}</a></div>
                             <br />
                             <div>{{content.detail}}</div>
                             <br />
