@@ -87,6 +87,8 @@
                     </video>
                     <div class="inlineHashTag">
                         <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
+                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
+                        <button class="button" name = "motionDesign" @click="setHashTag($event.currentTarget.name)">#Motion Design</button>
                         <!-- <div class="inlineLetter">Seventeen of Hearst</div> -->
                     </div>
                 </b-col>
@@ -109,6 +111,8 @@
                     <!-- <img @load="chkAllImageLoaded" v-lazyload :data-url="`https://drive.google.com/uc?export=view&id=15bgPaHDyWjOWKu_mk1rY7XtowasDajoS`" id="digitalContent/voy2021.png voy2021" @click="clickImgtoModal($event)" /> -->
                     <div class="inlineHashTag">
                         <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
+                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
+                        <button class="button" name = "motionDesign" @click="setHashTag($event.currentTarget.name)">#Motion Design</button>
                         <!-- <div class="inlineLetter">Seventeen of Hearst</div> -->
                     </div>
                 </b-col>
@@ -192,7 +196,7 @@
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
                     <!-- <img @load="chkAllImageLoaded" src="../assets/img/cosmetic/sooae_main.png" id="cosmetic/sooae_main.png" @click="clickImgtoModal($event)" /> -->
                     <!-- <img @load="chkAllImageLoaded" v-lazyload :data-url="`https://drive.google.com/uc?export=view&id=1UuGq-FgtN-UirjZ5qKMXVB98wkEV3ge_`" id="cosmetic/sooae_main.png" @click="clickImgtoModal($event)" /> -->
-                    <img @load="chkAllImageLoaded" src="https://drive.google.com/uc?export=view&id=1UuGq-FgtN-UirjZ5qKMXVB98wkEV3ge_" id="cosmetic/sooae_main.png" @click="clickImgtoModal($event)" />
+                    <img @load="chkAllImageLoaded" src="https://drive.google.com/uc?export=view&id=1UuGq-FgtN-UirjZ5qKMXVB98wkEV3ge_" id="cosmetic/sooae_main.png sooae" @click="clickImgtoModal($event)" />
                     <div class="inlineHashTag">
                         <button class="button" name = "photography" @click="setHashTag($event.currentTarget.name)">#Photography</button>
                         <button class="button" name = "displayDesign" @click="setHashTag($event.currentTarget.name)">#Display Design</button>
@@ -253,6 +257,8 @@
                     </video>
                     <div class="inlineHashTag">
                         <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
+                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
+                        <button class="button" name = "motionDesign" @click="setHashTag($event.currentTarget.name)">#Motion Design</button>
                         <div class="inlineLetter">Seventeen of Hearst</div>
                     </div>
                 </b-col>
@@ -267,6 +273,22 @@
                         <button class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
                         <!-- <div class="inlineLetter">Seventeen of Hearst</div> -->
                     </div>
+                </b-col>
+            </b-row>
+            <b-row id="rowSquare" align-v="stretch" v-show="getPackageHashTag === 'branding'" >
+                <b-col cols="3" align-self="start">
+                </b-col>
+                <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
+                    <img @load="chkAllImageLoaded" src="https://drive.google.com/uc?export=view&id=15bgPaHDyWjOWKu_mk1rY7XtowasDajoS" id="digitalContent/voy2021.png voy2021" @click="clickImgtoModal($event)" />
+                    <!-- <img @load="chkAllImageLoaded" v-lazyload :data-url="`https://drive.google.com/uc?export=view&id=15bgPaHDyWjOWKu_mk1rY7XtowasDajoS`" id="digitalContent/voy2021.png voy2021" @click="clickImgtoModal($event)" /> -->
+                    <div class="inlineHashTag">
+                        <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
+                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
+                        <button class="button" name = "motionDesign" @click="setHashTag($event.currentTarget.name)">#Motion Design</button>
+                        <!-- <div class="inlineLetter">Seventeen of Hearst</div> -->
+                    </div>
+                </b-col>
+                <b-col cols="3" align-self="start">
                 </b-col>
             </b-row>
             <b-row id="row" align-v="stretch" v-show="getPackageHashTag === 'branding'" >
@@ -332,7 +354,7 @@
             <!-- ################################################# -->
             <!-- ################### digitalContent ################### -->
             <!-- ################################################# -->
-            <b-row id="row" align-v="stretch" v-show="getPackageHashTag === 'digitalContent'" >
+            <b-row id="rowSquare" align-v="stretch" v-show="getPackageHashTag === 'digitalContent'" >
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
                     <img @load="chkAllImageLoaded" src="https://drive.google.com/uc?export=view&id=1MRJ2q0isn4vDRV9exFLWW8iy_oFoMYab" id="startup/xpoiled_detail.png" @click="clickImgtoModal($event)" />
                     <!-- <img @load="chkAllImageLoaded" v-lazyload :data-url="`https://drive.google.com/uc?export=view&id=1MRJ2q0isn4vDRV9exFLWW8iy_oFoMYab`" id="startup/xpoiled_detail.png xpoiled" @click="clickImgtoModal($event)" /> -->
@@ -347,12 +369,14 @@
                         <!-- <div class="inlineLetter">Distributed in TARGET</div> -->
                     </div>
                 </b-col>
-                <b-col cols="6" align-self="center">
+                <b-col cols="6" align-self="end">
                     <video id="2022voty-vertical-main-cover.mp4 voty2022" webkit-playsinline playsinline loop autoplay muted preload="auto" @click="clickImgtoModal($event)" >
                         <source :src="`https://drive.google.com/uc?export=view&id=1G03FIjI1fsLKFkgSZfHTebBH20Ci7BY2`" type="video/mp4" />
                     </video>
                     <div class="inlineHashTag">
                         <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
+                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
+                        <button class="button" name = "motionDesign" @click="setHashTag($event.currentTarget.name)">#Motion Design</button>
                         <!-- <div class="inlineLetter">Seventeen of Hearst</div> -->
                     </div>
                 </b-col>
@@ -375,6 +399,8 @@
                     <!-- <img @load="chkAllImageLoaded" v-lazyload :data-url="`https://drive.google.com/uc?export=view&id=15bgPaHDyWjOWKu_mk1rY7XtowasDajoS`" id="digitalContent/voy2021.png voy2021" @click="clickImgtoModal($event)" /> -->
                     <div class="inlineHashTag">
                         <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
+                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
+                        <button class="button" name = "motionDesign" @click="setHashTag($event.currentTarget.name)">#Motion Design</button>
                         <!-- <div class="inlineLetter">Seventeen of Hearst</div> -->
                     </div>
                 </b-col>
@@ -408,6 +434,32 @@
                 <b-col cols="2" md="2">
                 </b-col>
             </b-row>
+            <!-- ################################################# -->
+            <!-- ################### motionDesign ################### -->
+            <!-- ################################################# -->
+            <b-row id="rowSquare" align-v="stretch" v-show="getPackageHashTag === 'motionDesign'" >
+                <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
+                    <img @load="chkAllImageLoaded" src="https://drive.google.com/uc?export=view&id=15bgPaHDyWjOWKu_mk1rY7XtowasDajoS" alt="" id="digitalContent/voy2021.png voy2021" @click="clickImgtoModal($event)" />
+                    <!-- <img @load="chkAllImageLoaded" v-lazyload :data-url="`https://drive.google.com/uc?export=view&id=15bgPaHDyWjOWKu_mk1rY7XtowasDajoS`" id="digitalContent/voy2021.png voy2021" @click="clickImgtoModal($event)" /> -->
+                    <div class="inlineHashTag">
+                        <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
+                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
+                        <button class="button" name = "motionDesign" @click="setHashTag($event.currentTarget.name)">#Motion Design</button>
+                        <!-- <div class="inlineLetter">Seventeen of Hearst</div> -->
+                    </div>
+                </b-col>
+                <b-col cols="6" align-self="center">
+                    <video id="2022voty-vertical-main-cover.mp4 voty2022" webkit-playsinline playsinline loop autoplay muted preload="auto" @click="clickImgtoModal($event)" >
+                        <source :src="`https://drive.google.com/uc?export=view&id=1G03FIjI1fsLKFkgSZfHTebBH20Ci7BY2`" type="video/mp4" />
+                    </video>
+                    <div class="inlineHashTag">
+                        <button class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
+                        <button class="button" name = "branding" @click="setHashTag($event.currentTarget.name)">#Branding</button>
+                        <button class="button" name = "motionDesign" @click="setHashTag($event.currentTarget.name)">#Motion Design</button>
+                        <!-- <div class="inlineLetter">Seventeen of Hearst</div> -->
+                    </div>
+                </b-col>
+            </b-row>
             <!-- <b-row id="row" align-v="stretch" align-h="around" v-show="getPackageHashTag === 'digitalContent'">
                 
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
@@ -438,7 +490,7 @@
                     </div>
                 </b-col>
                 <b-col cols="6" align-self="center" v-b-modal="'my-modal'">
-                    <img @load="chkAllImageLoaded" src="https://drive.google.com/uc?export=view&id=1UuGq-FgtN-UirjZ5qKMXVB98wkEV3ge_" id="cosmetic/sooae_main.png" @click="clickImgtoModal($event)" />
+                    <img @load="chkAllImageLoaded" src="https://drive.google.com/uc?export=view&id=1UuGq-FgtN-UirjZ5qKMXVB98wkEV3ge_" id="cosmetic/sooae_main.png sooae" @click="clickImgtoModal($event)" />
                     <!-- <img @load="chkAllImageLoaded" v-lazyload :data-url="`https://drive.google.com/uc?export=view&id=1UuGq-FgtN-UirjZ5qKMXVB98wkEV3ge_`" id="cosmetic/sooae_main.png" @click="clickImgtoModal($event)" /> -->
                     <div class="inlineHashTag">
                         <button class="button" name = "photography" @click="setHashTag($event.currentTarget.name)">#Photography</button>
@@ -547,7 +599,7 @@
             </b-row>
             <b-row id="row" align-v="stretch" v-show="getPackageHashTag === 'photography'" >
                 <b-col cols="6" align-self="start" v-b-modal="'my-modal'">
-                    <img @load="chkAllImageLoaded" src="https://drive.google.com/uc?export=view&id=1UuGq-FgtN-UirjZ5qKMXVB98wkEV3ge_" id="cosmetic/sooae_main.png" @click="clickImgtoModal($event)" />
+                    <img @load="chkAllImageLoaded" src="https://drive.google.com/uc?export=view&id=1UuGq-FgtN-UirjZ5qKMXVB98wkEV3ge_" id="cosmetic/sooae_main.png sooae" @click="clickImgtoModal($event)" />
                     <!-- <img @load="chkAllImageLoaded" v-lazyload :data-url="`https://drive.google.com/uc?export=view&id=1UuGq-FgtN-UirjZ5qKMXVB98wkEV3ge_`" id="cosmetic/sooae_main.png" @click="clickImgtoModal($event)" /> -->
                     <div class="inlineHashTag">
                         <button class="button" name = "photography" @click="setHashTag($event.currentTarget.name)">#Photography</button>
@@ -750,7 +802,7 @@
                     </div>
                 </b-col>
                 <b-col cols="6" align-self="end" v-b-modal="'my-modal'">
-                    <img @load="chkAllImageLoaded" src="https://drive.google.com/uc?export=view&id=1UuGq-FgtN-UirjZ5qKMXVB98wkEV3ge_" id="cosmetic/sooae_main.png" @click="clickImgtoModal($event)" />
+                    <img @load="chkAllImageLoaded" src="https://drive.google.com/uc?export=view&id=1UuGq-FgtN-UirjZ5qKMXVB98wkEV3ge_" id="cosmetic/sooae_main.png sooae" @click="clickImgtoModal($event)" />
                     <!-- <img @load="chkAllImageLoaded" v-lazyload :data-url="`https://drive.google.com/uc?export=view&id=1UuGq-FgtN-UirjZ5qKMXVB98wkEV3ge_`" id="cosmetic/sooae_main.png" @click="clickImgtoModal($event)" /> -->
                     <div class="inlineHashTag">
                         <button class="button" name = "photography" @click="setHashTag($event.currentTarget.name)">#Photography</button>

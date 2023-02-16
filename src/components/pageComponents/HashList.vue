@@ -23,6 +23,8 @@
                         class="button" name = "packageDesign" @click="setHashTag($event.currentTarget.name)">#Package Design</button>
                         <button :style="{'background-color': activeButton === 'digitalContent' ? 'white' : '#000000', 'color': activeButton === 'digitalContent' ? 'black':'white'}" 
                         class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
+                        <button :style="{'background-color': activeButton === 'motionDesign' ? 'white' : '#000000', 'color': activeButton === 'motionDesign' ? 'black':'white'}" 
+                        class="button" name = "motionDesign" @click="setHashTag($event.currentTarget.name)">#Motion Design</button>
                     </div>
                     <div class="hashButtons">
                         <button :style="{'background-color': activeButton === 'brandStrategy' ? 'white' : '#000000', 'color': activeButton === 'brandStrategy' ? 'black':'white'}" 
@@ -61,6 +63,8 @@
                     class="button" name = "packageDesign" @click="setHashTag($event.currentTarget.name)">#Package Design</button>
                     <button :style="{'background-color': activeButton === 'digitalContent' ? 'white' : '#000000', 'color': activeButton === 'digitalContent' ? 'black':'white'}" 
                     class="button" name = "digitalContent" @click="setHashTag($event.currentTarget.name)">#Digital Content</button>
+                    <button :style="{'background-color': activeButton === 'motionDesign' ? 'white' : '#000000', 'color': activeButton === 'motionDesign' ? 'black':'white'}" 
+                    class="button" name = "motionDesign" @click="setHashTag($event.currentTarget.name)">#Motion Design</button>
                     <button :style="{'background-color': activeButton === 'brandStrategy' ? 'white' : '#000000', 'color': activeButton === 'brandStrategy' ? 'black':'white'}" 
                     class="button" name = "brandStrategy" @click="setHashTag($event.currentTarget.name)">#Brand Strategy</button>
                     <button :style="{'background-color': activeButton === 'photography' ? 'white' : '#000000', 'color': activeButton === 'photography' ? 'black':'white'}" 

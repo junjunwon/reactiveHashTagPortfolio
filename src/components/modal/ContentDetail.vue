@@ -17,7 +17,7 @@
             <b-row id="rowSquare" align-v="stretch">
                 <b-overlay  fixed no-center class="test" :show="getSlideLoading" bg-color="black" rounded="lg" opacity="0.95" style="height:750vh !important; ">
                 <template #overlay>
-                    <div class=" position-absolute" style="top:0%; left:0%;">
+                    <div class="position-absolute" style="top:0%; left:0%;">
                         <div>
                             <span class="sr-only" style="top:20% !important; font-size:2em;">PLEASE WAIT A MOMENT...</span>
                         </div>
@@ -25,13 +25,15 @@
                 </template>
                 <b-row style="margin-bottom:2em;">
                     <swiper
-                            :modules="modules"
                             :space-between="30"
+                            :slides-per-view="auto"
+                            :slides-per-group="auto"
                             @swiper="onSwiper"
                             :observer= "true"
                             :observeParents= "true"
                             :lazy="true"
                             @slideChange="onSlideChange"
+                            @reachEnd="reachEnd"
                             :keyboard="{
                                 enabled: true
                             }"
@@ -153,9 +155,10 @@ export default {
                 detail2 : 'As a result, Tutti was able to more fully penetrate the high-income market segment in the mani-pedi space. There were store expansions nationwide, particularly in the East Coast. Moreover, our custom-made nail polish bottles attracted attention wherever they were displayed in-store, notably lifting sales and further reinforcing the brand’s upscale image.'
             },
             contentSeventeen: {
-                header : '',
+                header : 'Created digital content under Seventeen’s visual guidelines reflecting Gen Z graphic design trends such as 90s Nostalgia and Y2K trends.',
+                header2 : 'The Seventeen’s visual guidelines were newly freshened up by Yoora Kim',
                 rate : '',
-                detail : ''
+                detail : 'This digital content was featured on Seventeen’s official website and other diverse social media platforms including Instagram, Facebook, Twitter, TikTok, YouTube, and Snapchat.'
             },
             contentVoty2022: {
                 header : 'Seventeen’s 2022 Voices of the Year',
@@ -166,7 +169,8 @@ export default {
                 detail2 : 'Each winner is featured on site in an in-depth interview, on their very own Seventeen digital cover, and in a video they have created for Seventeen’s TikTok and Instagram feeds as well as their own individual YouTube Shorts, where they break down their advocacy work and impart their advice for young activists nationwide.'
             },
             contentVoy2021: {
-                header : 'Seventeen’s 2021 Voices of the Year Oversaw all visuals and motion graphic creation',
+                header : 'Seventeen’s 2021 Voices of the Year',
+                header2 : 'Oversaw all visuals and motion graphic creation',
                 rate : 'The whole package here',
                 link : 'https://www.seventeen.com/life/a38411652/2021-voices-of-the-year/',
                 detail : 'Seventeen’s 2022 Voices of the Year, featuring nine young people who used their voices to change the world this year, These nine young people are working today to save tomorrow and we are incredibly honored to recognize them as our 2021 Voices of the Year.',
@@ -180,22 +184,18 @@ export default {
                 detail3 : 'Thus, I sought to convey to the young generation that even seniors are able to young regardless of age, as long as they bear dreams and aim in a heartful mind. I tried to actualize their stories into the illustrations'
             },
             contentArtipst: {
-                header : '',
+                header : 'Travel Guide Book / ARTIPST',
                 rate : '',
-                detail : ''
+                detail : 'I designed a guidebook for artists interested in European travel. I also took pictures and illustrated various aspects of Europe, which expressed through my unique style.'
             },
             contentIllustrationCooing: {
                 header : '',
                 rate : '',
                 detail : ''
             },
-            c: {
-                header : '',
-                rate : '',
-                detail : ''
-            },
-            d: {
-                header : '',
+            contentSooae: {
+                header : 'Worked on Package Design and Photography.',
+                header2: 'Distributed at Walmart, CVS',
                 rate : '',
                 detail : ''
             },
@@ -244,10 +244,14 @@ export default {
     },
     methods: {
       onSwiper(swiper) {
+        console.log('swiper');
         console.log(swiper);
       },
-      onSlideChange() {
-        console.log('slide change');
+      onSlideChange(event) {
+        console.log('slide change', event);
+        if (this.slides / event.activeIndex) { // 13 / 4 = 3
+
+        }
       },
         chkAllImageLoaded() {
             // this.allImageLoaded = this.allImageLoaded + 1
@@ -298,12 +302,14 @@ export default {
             } else if (this.$store.getters.getModalInfo.catagory === 'illustrationCooing') {
                 this.slides = this.imageList.illustrationCooing
                 this.content = this.contentIllustrationCooing
+            } else if (this.$store.getters.getModalInfo.catagory === 'sooae') {
+                this.slides = this.imageList.sooae
+                this.content = this.contentSooae
             }
             else {
                 this.slides = []
                 this.content = {}
             }
-            
             return this.slides 
         },
         hideModal() {
@@ -495,15 +501,34 @@ height: 600px !important;
 .test_2 {
     width: auto !important;
 }
-.swiper .swiper-pagination {
+/* .swiper .swiper-pagination {
   position: absolute;
   bottom: 65px !important;
 }
 .swiper .swiper-pagination-bullet {
   background-color: #000;
   margin: 0 10px !important;
-}
+} */
 .swiper-button-next, .swiper-button-prev {
     color: white;
 }
+/* .swiper-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  max-height: 100vh !important;
+  min-height: 0 !important;
+  min-width: 0 !important;
+}
+.swiper-slide {
+    width: auto;
+    flex-shrink: 0;
+    display: block;
+    height: 100%;
+    max-height: 100%;
+}
+.swiper-wrapper {
+    max-height: 100%;
+    height: 100%;
+    display: flex;
+} */
 </style>
